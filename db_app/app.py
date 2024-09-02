@@ -17,6 +17,18 @@ class sappad(db.Model):
         self.employee_id=employee_id
 db.create_all()
 
-vishnu = sappad("srivishnu",13861)
-db.session.add(vishnu)
-db.session.commit()
+@app.route("/form")
+def form():
+    return render_template("db.html")
+
+@app.route("/db",methods=["GET"])
+def db_storage():
+    name = request.args.get("name")
+    employee_id = request.args.get("employee_id")
+    instance = sappad(f"{name}",f"{employee_id}")
+    db.session.add(instance)
+    db.session.commit()
+    output = f"The user {name} with employee ID {employee_id} was successfully updated to DB"
+    return output
+
+app.run(debug=True,host="0.0.0.0",port=5555)
