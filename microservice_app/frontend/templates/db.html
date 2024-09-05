@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Form</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('userForm').addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent default form submission
+
+                // Get the values entered by the user
+                const name = document.getElementById('name').value;
+                const employee_id = document.getElementById('employee_id').value;
+
+                // Send POST request to the backend service
+                fetch('http://172.17.0.3:5556/db', { // 'backend' is the service name
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, employee_id: employee_id })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Display the message from the backend
+                    document.getElementById('responseMessage').innerText = data.message;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('responseMessage').innerText = 'Error communicating with backend.';
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Welcome to Sappad</h1>
+    
+    <form id="userForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="employee_id">Employee ID:</label>
+        <input type="text" id="employee_id" name="employee_id" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <p id="responseMessage"></p> <!-- This will display the response message from the backend -->
+
+</body>
+</html>
+
+
