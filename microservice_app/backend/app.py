@@ -32,18 +32,18 @@ def create_db():
 
 
 
-@app.route('/db', methods=['POST', 'OPTIONS'])
+@app.route('/db', methods=['POST'])
 def db_storage():
-    if request.method == 'OPTIONS':
+    #if request.method == 'OPTIONS':
         # Handle CORS preflight
-        response = jsonify({'message': 'CORS preflight successful'})
-        response.headers.add("Access-Control-Allow-Origin", "*")
-        response.headers.add("Access-Control-Allow-Methods", "POST, OPTIONS")
-        response.headers.add("Access-Control-Allow-Headers", "Content-Type")
-        return response
-    data = request.get_json()  # Make sure to use request.get_json() for POST JSON data
-    name = data.get('name')
-    employee_id = data.get('employee_id')
+     #   response = jsonify({'message': 'CORS preflight successful'})
+     #   response.headers.add("Access-Control-Allow-Origin", "*")
+     #   response.headers.add("Access-Control-Allow-Methods", "POST, OPTIONS")
+      #  response.headers.add("Access-Control-Allow-Headers", "Content-Type")
+     #   return response
+    #data = request.get_json()  # Make sure to use request.get_json() for POST JSON data
+    name =  request.form.get("employee_name")
+    employee_id= request.form.get("employee_id")
     #name = request.args.get("name")
     #employee_id = request.args.get("employee_id")
     instance = sappad(f"{name}",f"{employee_id}")
