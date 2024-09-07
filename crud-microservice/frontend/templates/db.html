@@ -1,10 +1,15 @@
-<form action="http://backend-service.vishnu-net:5556/create" method="post">
-
-Name <input name="employee_name">
+<center><form  action="http://{{ backend_con_name }}.{{   custom_network  }}:{{ create_port }}/create" method="post">
+	<center><h1>Welcome to my Demo App</h1></center>
+	<br>
+	Name <input name="employee_name" required>
 <br>
-Employee ID <input name="employee_id">
 <br>
-Employee mail <input name="employee_mail">
+Employee ID <input name="employee_id" required>
+<br>
+<br>
+Employee mail <input name="employee_mail" required>
+<br>
 <br>
 <input type="submit" value="Submit">
-</form>
+	</form></center>
+

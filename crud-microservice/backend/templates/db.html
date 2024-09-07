@@ -1,35 +1,13 @@
-<form action="http://read-services.vishnu-net:5558/list" method="POST">
+<center><form action="http://{{ read_con_name }}.{{ custom_network_name }}:{{ read_port }}/list" method="POST">
 	<input type="hidden" name="employee_name" value={{ employee_name }}>
-	{{ output }}
 	<br>
-	<input type="submit" value="list details">
+	The User <b>{{ employee_name }}</b> with Employee ID <b>{{ employee_id }}</b> and Employee mail <b>{{ employee_mail }}</b> was successfully updated to Redis host"
 
-
-
-
-
-
-
-
-
-
-	</form>
-	<form action="http://localhost:4555/form" method="GET">
-
-	The redis details are as follows
-	{{ output }}
 	<br>
-	<input type="submit" value="return">
+	<br>
+	<input type="submit" value="list info">
+</form></center>
+<center><form action="http://{{ frontend_con_name }}.{{ custom_network_name }}:{{ frontend_port }}" method="GET">
 
-
-
-
-
-
-
-
-
-
-	</form>
-
-
+	<input type="submit" value="return to home page">
+	</form></center>
