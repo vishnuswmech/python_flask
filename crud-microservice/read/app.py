@@ -1,5 +1,4 @@
 from flask import Flask,render_template,request,jsonify
-from flask_sqlalchemy import SQLAlchemy
 import os,redis
 app = Flask("db_app")
 
@@ -20,5 +19,6 @@ def db_storage():
     #return render_template("create.html",name=name,employee_id=employee_id,employee_mail=employee_mail)
     return render_template("list.html",output=decoded_data)
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5558)
+    port=os.environ.get("read_port")
+    app.run(debug=True, host="0.0.0.0", port=port)
 
