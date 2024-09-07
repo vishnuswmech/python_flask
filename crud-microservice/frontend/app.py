@@ -1,6 +1,5 @@
 from flask import Flask,render_template,request
-from flask_sqlalchemy import SQLAlchemy
-
+import os
 
 app = Flask("db_app")
 
@@ -19,8 +18,11 @@ app = Flask("db_app")
 
 @app.route("/form")
 def form():
-    return render_template("db.html")
+    port=os.environ.get("frontend_port")
+    backend_con_name=os.environ.get("backend_con_name")
+    create_port=os.environ.get("backend_port")
+    custom_network=os.environ.get("custom_network_name")
+    return render_template("db.html",backend_con_name=backend_con_name,custom_network=custom_network,create_port=create_port )
 
-
-app.run(debug=True,host="0.0.0.0",port=4555)
-
+port=os.environ.get("frontend_port")
+app.run(debug=True,host="0.0.0.0",port=port)
