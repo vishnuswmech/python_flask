@@ -15,14 +15,20 @@ app = Flask("db_app")
 #        self.name=name
 #        self.employee_id=employee_id
 #db.create_all()
-
-@app.route("/form")
+port=os.environ.get("frontend_port")
+backend_con_name=os.environ.get("backend_con_name")
+create_port=os.environ.get("backend_port")
+custom_network=os.environ.get("custom_network_name")
+read_con_name=os.environ.get("read_con_name")
+read_port=os.environ.get("read_port")
+@app.route("/")
+def root():
+    print(f"http://{read_con_name}.{custom_network}:{read_port}/read")
+    return render_template("root.html",backend_con_name=backend_con_name,read_con_name=read_con_name,read_port=read_port,custom_network=custom_network,create_port=create_port)
+@app.route("/form",methods=["GET"])
 def form():
-    port=os.environ.get("frontend_port")
-    backend_con_name=os.environ.get("backend_con_name")
-    create_port=os.environ.get("backend_port")
-    custom_network=os.environ.get("custom_network_name")
-    return render_template("db.html",backend_con_name=backend_con_name,custom_network=custom_network,create_port=create_port )
+    return render_template("db.html",port=port,backend_con_name=backend_con_name,custom_network=custom_network,create_port=create_port )
 
 port=os.environ.get("frontend_port")
 app.run(debug=True,host="0.0.0.0",port=port)
+

@@ -6,12 +6,12 @@ docker network rm ${custom_network_name}
 docker network create ${custom_network_name} --driver bridge
 
 #frontend
-docker run -dit --name ${frontend_con_name} -p ${frontend_port}:${frontend_port} -e frontend_port=${frontend_port} -e backend_con_name=${backend_con_name} -e custom_network_name=${custom_network_name} -e backend_port=${backend_port} --net ${custom_network_name} ${frontend_image}
+docker run -dit --name ${frontend_con_name} -p ${frontend_port}:${frontend_port} -e frontend_port=${frontend_port} -e backend_con_name=${backend_con_name} -e custom_network_name=${custom_network_name} -e read_port=${read_port}  -e backend_port=${backend_port} -e read_con_name=${read_con_name} --net ${custom_network_name} ${frontend_image} /bin/bash
 #backend
-docker run -dit --name ${backend_con_name} -p ${backend_port}:${backend_port} -e backend_port=${backend_port} -e frontend_con_name=${frontend_con_name} -e custom_network_name=${custom_network_name} -e frontend_port=${frontend_port} -e read_con_name=${read_con_name} -e read_port=${read_port} -e redis_host=${redis_con_name}.${custom_network_name} --net ${custom_network_name} ${backend_image}
+docker run -dit --name ${backend_con_name} -p ${backend_port}:${backend_port} -e backend_port=${backend_port} -e frontend_con_name=${frontend_con_name} -e custom_network_name=${custom_network_name} -e frontend_port=${frontend_port} -e read_con_name=${read_con_name} -e read_port=${read_port} -e redis_host=${redis_con_name}.${custom_network_name} --net ${custom_network_name} ${backend_image} /bin/bash
 
 #read
-docker run -dit --name ${read_con_name} -p ${read_port}:${read_port} -e read_port=${read_port} --net ${custom_network_name} -e redis_host=${redis_con_name}.${custom_network_name} -e custom_network_name=${custom_network_name} -e frontend_con_name=${frontend_con_name} -e frontend_port=${frontend_port} ${read_image}
+docker run -dit --name ${read_con_name} -p ${read_port}:${read_port} -e read_port=${read_port} --net ${custom_network_name} -e redis_host=${redis_con_name}.${custom_network_name} -e custom_network_name=${custom_network_name} -e frontend_con_name=${frontend_con_name} -e frontend_port=${frontend_port} ${read_image} /bin/bash
 
 #redis
 docker run -dit --name ${redis_con_name} --net ${custom_network_name}  -e redis_host=${redis_con_name}.${custom_network_name} ${redis_image}
