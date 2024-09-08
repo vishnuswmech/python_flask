@@ -2,7 +2,7 @@
     <h2>Select the options according to your needs</h2>
     <form method="POST">  
 	    <h3>Need to create data?Press Create button.</h3>
-      <button type="submit" value="Create" formaction="/form">Create</button>
+	    <button type="submit" value="Create" formaction="http://{{ create_con_name }}.{{ custom_network }}:{{ create_port }}/form">Create</button>
 	    <br>
 	    <br>
 	    <h3>Want to Read some data? Fill the name details</h3>
@@ -23,16 +23,20 @@
             <br>
 	    <h3>Need to delete any data? Fill the required details</h3>
 	    <input name="delete_employee_name">
+
+
+
+
             <select name="delete_key">
 
-                    <option value="employee_id">Employee_ID</option>
- <option value="employee_mail">Employee_Mail</option>
+                    <option value="delete_employee_id">Employee_ID</option>
+ <option value="delete_employee_mail">Employee_Mail</option>
+ <option value="delete_user">DeleteUser</option>
  </select>
 
-<input name="delete_value">
 
 
-	<button type="submit" value="Delete" formaction="http://{{ delete_con_name }}.{{ custom_network }}:{{ create_port }}/delete">Delete</button>
+	<button type="submit" value="Delete" formaction="http://{{ delete_con_name }}.{{ custom_network }}:{{ delete_port }}/delete">Delete</button>
   <br>
             <br>
 

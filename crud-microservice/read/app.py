@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request,jsonify
 import os,redis
-app = Flask("db_app")
+app = Flask("crud_read_app")
 
 redis_host=os.environ.get("redis_host")
 redis=redis.Redis(host=redis_host, port="6379")

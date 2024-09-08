@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request,jsonify
 import os,redis
-app = Flask("db_app")
+app = Flask("crud_update_app")
 
 redis_host=os.environ.get("redis_host")
 redis=redis.Redis(host=redis_host, port="6379")
@@ -19,6 +19,7 @@ def db_storage():
     frontend_port = os.environ.get("frontend_port")
     read_con_name = os.environ.get("read_con_name")
     read_port = os.environ.get("read_port")
+
     if update_key=="employee_id":
       redis.hset(f"user:{name}",mapping={"id":f"{update_value}"})
     elif update_key=="employee_mail":
