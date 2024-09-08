@@ -1,21 +1,76 @@
-<center><h1>Welcome to my Demo CRUD App</h1>
+<center><h1>Welcome to My CRUD App</h1>
     <h2>Select the options according to your needs</h2>
-    <form method="GET">  
-
+    <form method="POST">  
+	    <h3>Need to create data?Press Create button.</h3>
       <button type="submit" value="Create" formaction="/form">Create</button>
 	    <br>
 	    <br>
-    <button type="submit" value="Read" formaction="http://{{ read_con_name }}.{{ custom_network }}:{{ read_port }}/read">Read</button>
+	    <h3>Want to Read some data? Fill the name details</h3>
+	    <input name="employee_name">
+    <button type="submit" value="Read" formaction="http://{{ read_con_name }}.{{ custom_network }}:{{ read_port }}/list">Read</button>
           <br>
             <br>
+	    <h3>Need to update Existing data?Fill the name details</h3>
+<input name="employee_name">
+            <select name="update_key">
 
+                    <option value="employee_id">Employee_ID</option>
+ <option value="employee_mail">Employee_Mail</option>
+ </select>
+ <input name="update_value" >
 	<button type="submit" value="Update" formaction="http://{{ update_con_name }}.{{ custom_network }}:{{ create_port }}/update">Update</button>
   <br>
             <br>
+	    <h3>Need to delete any data? Fill the required details</h3>
+	    <input name="employee_name">
+            <select name="delete_key">
+
+                    <option value="employee_id">Employee_ID</option>
+ <option value="employee_mail">Employee_Mail</option>
+ </select>
+<input name="delete_value">
+
 
 	<button type="submit" value="Delete" formaction="http://{{ delete_con_name }}.{{ custom_network }}:{{ create_port }}/delete">Delete</button>
   <br>
             <br>
 
     </form></center>
+<center><h1>Welcome to my Demo CRUD App</h1>
+    <h2>Select the options according to your needs</h2>
+    <form method="POST">  
+	    <h3>Need to create data?Press Create button.</h3>
+      <button type="submit" value="Create" formaction="/form">Create</button>
+	    <br>
+	    <br>
+	    <h3>Want to Read some data? Fill the name details</h3>
+	    <input name="employee_name">
+    <button type="submit" value="Read" formaction="http://{{ read_con_name }}.{{ custom_network }}:{{ read_port }}/list">Read</button>
+          <br>
+            <br>
+	    <h3>Need to update Existing data?Fill the name details</h3>
+<input name="employee_name">
+            <select name="update_key">
 
+                    <option value="employee_id">Employee_ID</option>
+ <option value="employee_mail">Employee_Mail</option>
+ </select>
+ <input name="update_value" >
+	<button type="submit" value="Update" formaction="http://{{ update_con_name }}.{{ custom_network }}:{{ create_port }}/update">Update</button>
+  <br>
+            <br>
+	    <h3>Need to delete any data? Fill the required details</h3>
+	    <input name="employee_name">
+            <select name="delete_key">
+
+                    <option value="employee_id">Employee_ID</option>
+ <option value="employee_mail">Employee_Mail</option>
+ </select>
+<input name="delete_value">
+
+
+	<button type="submit" value="Delete" formaction="http://{{ delete_con_name }}.{{ custom_network }}:{{ create_port }}/delete">Delete</button>
+  <br>
+            <br>
+
+    </form></center>
