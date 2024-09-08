@@ -21,10 +21,13 @@ create_port=os.environ.get("backend_port")
 custom_network=os.environ.get("custom_network_name")
 read_con_name=os.environ.get("read_con_name")
 read_port=os.environ.get("read_port")
+update_con_name=os.environ.get("update_con_name")
+update_port=os.environ.get("update_port")
+
 @app.route("/")
 def root():
-    print(f"http://{read_con_name}.{custom_network}:{read_port}/read")
-    return render_template("root.html",backend_con_name=backend_con_name,read_con_name=read_con_name,read_port=read_port,custom_network=custom_network,create_port=create_port)
+    print(f"http://{update_con_name}.{custom_network}:{update_port}/read")
+    return render_template("root.html",update_con_name=update_con_name,update_port=update_port,backend_con_name=backend_con_name,read_con_name=read_con_name,read_port=read_port,custom_network=custom_network,create_port=create_port)
 @app.route("/form",methods=["POST"])
 def form():
     return render_template("db.html",port=port,backend_con_name=backend_con_name,custom_network=custom_network,create_port=create_port )

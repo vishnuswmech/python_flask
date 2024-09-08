@@ -11,10 +11,12 @@ frontend_port = os.environ.get("frontend_port")
 def db_storage():
 
     name =  request.form.get("employee_name")
+    print(f"the name is {name}")
     #employee_id= request.form.get("employee_id")
     #employee_mail = request.form.get("employee_mail")
     #redis.hset(f"user:{name}", mapping={"name": f"{name}", "id": f"{employee_id}", "email": f"{employee_mail}"})
     output = redis.hgetall(f"user:{name}")
+    print(output)
     decoded_data = {k.decode('utf-8'): v.decode('utf-8') for k, v in output.items()}
     print(decoded_data)
     #output = f"The user {name} with employee ID {employee_id} was successfully updated to DB"

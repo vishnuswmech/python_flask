@@ -1,34 +1,37 @@
-from flask import Flask,render_template,request
-import os
-
+from flask import Flask,render_template,request,jsonify
+import os,redis
 app = Flask("db_app")
 
-#app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///sqlite/mydata.sqlite'
+redis_host=os.environ.get("redis_host")
+redis=redis.Redis(host=redis_host, port="6379")
 
-#db = SQLAlchemy(app)
+@app.route('/update', methods=['POST'])
+def db_storage():
 
-#class sappad(db.Model):
-#    id = db.Column(db.Integer,primary_key = True)
-#    name = db.Column(db.Text)
-#    employee_id = db.Column(db.Integer)
-#    def __init__(self,name,employee_id):
-#        self.name=name
-#        self.employee_id=employee_id
-#db.create_all()
-port=os.environ.get("frontend_port")
-backend_con_name=os.environ.get("backend_con_name")
-create_port=os.environ.get("backend_port")
-custom_network=os.environ.get("custom_network_name")
-read_con_name=os.environ.get("read_con_name")
-read_port=os.environ.get("read_port")
-@app.route("/")
-def root():
-    print(f"http://{read_con_name}.{custom_network}:{read_port}/read")
-    return render_template("root.html",backend_con_name=backend_con_name,read_con_name=read_con_name,read_port=read_port,custom_network=custom_network,create_port=create_port)
-@app.route("/form",methods=["GET"])
-def form():
-    return render_template("db.html",port=port,backend_con_name=backend_con_name,custom_network=custom_network,create_port=create_port )
+    name =  request.form.get("update_employee_name")
+    print(name)
+    update_key= request.form.get("update_key")
+    print(update_key)
+    update_value = request.form.get("update_value")
+    print(update_value)
+    frontend_con_name = os.environ.get("frontend_con_name")
+    custom_network_name = os.environ.get("custom_network_name")
+    frontend_port = os.environ.get("frontend_port")
+    read_con_name = os.environ.get("read_con_name")
+    read_port = os.environ.get("read_port")
+    if update_key=="employee_id":
+      redis.hset(f"user:{name}",mapping={"id":f"{update_value}"})
+    elif update_key=="employee_mail":
+      redis.hset(f"user:{name}",mapping={"email":f"{update_value}"})
+    else:
+      return "No Key is submitted to update"
+    #redis.hset(f"user:{name}", mapping={"name": f"{name}", "id": f"{employee_id}", "email": f"{employee_mail}"})
+    #output = redis.hgetall(f"{name}")
+    output = f"The User <b>{name}</b> with Update Key <b>{update_key}</b> is updated with <b>{update_value}</b> successfully to Redis host"
+    #return render_template("create.html",name=name,employee_id=employee_id,employee_mail=employee_mail)
 
-port=os.environ.get("frontend_port")
-app.run(debug=True,host="0.0.0.0",port=port)
+    return render_template("db.html",update_value=update_value,update_key=update_key,employee_name=name,read_port=read_port,frontend_con_name=frontend_con_name,custom_network_name=custom_network_name,frontend_port=frontend_port,read_con_name=read_con_name)
+if __name__ == "__main__":
+    port=os.environ.get("update_port")
+    app.run(debug=True, host="0.0.0.0", port=port)
 

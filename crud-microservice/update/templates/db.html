@@ -1,15 +1,13 @@
-<center><form  action="http://{{ backend_con_name }}.{{   custom_network  }}:{{ create_port }}/create" method="post">
-	<center><h1>Welcome to my Demo App</h1></center>
+<center><form action="http://{{ read_con_name }}.{{ custom_network_name }}:{{ read_port }}/list" method="POST">
 	<br>
-	Name <input name="employee_name" required>
-<br>
-<br>
-Employee ID <input name="employee_id" required>
-<br>
-<br>
-Employee mail <input name="employee_mail" required>
-<br>
-<br>
-<input type="submit" value="Submit">
-	</form></center>
+<input type="hidden" name="employee_name" value={{ employee_name }}>
+	The User <b>{{ employee_name }}</b> with Update Key <b>{{ update_key }}</b> is updated with <b>{{ update_value }}</b> successfully to Redis host"
 
+	<br>
+	<br>
+	<input type="submit" value="list info">
+</form></center>
+<center><form action="http://{{ frontend_con_name }}.{{ custom_network_name }}:{{ frontend_port }}" method="GET">
+
+	<input type="submit" value="return to home page">
+	</form></center>
