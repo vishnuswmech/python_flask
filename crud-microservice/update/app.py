@@ -14,6 +14,8 @@ home_con_name = os.environ.get("home_con_name")
 home_port = os.environ.get("home_port")
 update_con_name = os.environ.get("update_con_name")
 update_port = os.environ.get("update_port")
+create_port = os.environ.get("create_port")
+create_con_name = os.environ.get("create_con_name")
 
 @app.route("/form",methods=['POST','GET'])
 def form():
@@ -27,16 +29,21 @@ def update():
     print(update_key)
     update_value = request.form.get("update_value")
     print(update_value)
-
-    if update_key=="employee_id":
-      update_key="Employee ID"
-      redis.hset(f"user:{name}",mapping={"id":f"{update_value}"})
-    elif update_key=="employee_mail":
-      update_key="Employee Mail"
-      redis.hset(f"user:{name}",mapping={"email":f"{update_value}"})
+    check_name=redis.hget(f"user:{name}","name")
+    print(check_name)
+    print(name)
+    if check_name!=None:
+      if update_key=="employee_id":
+        update_key="Employee ID"
+        redis.hset(f"user:{name}",mapping={"id":f"{update_value}"})
+      elif update_key=="employee_mail":
+        update_key="Employee Mail"
+        redis.hset(f"user:{name}",mapping={"email":f"{update_value}"})
+      else:
+        return "No Key is submitted to update"
+      return render_template("update.html",update_value=update_value,update_key=update_key,employee_name=name,read_port=read_port,home_con_name=home_con_name,custom_network_name=custom_network_name,home_port=home_port,read_con_name=read_con_name)
     else:
-      return "No Key is submitted to update"
-    return render_template("update.html",update_value=update_value,update_key=update_key,employee_name=name,read_port=read_port,home_con_name=home_con_name,custom_network_name=custom_network_name,home_port=home_port,read_con_name=read_con_name)
+      return render_template("error.html",name=name,read_con_name=read_con_name,read_port=read_port,custom_network_name=custom_network_name,create_con_name=create_con_name,create_port=create_port,home_port=home_port,home_con_name=home_con_name)
 
 
 if __name__ == "__main__":
