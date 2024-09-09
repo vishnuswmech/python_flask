@@ -15,7 +15,7 @@ home_port = os.environ.get("home_port")
 update_con_name = os.environ.get("update_con_name")
 update_port = os.environ.get("update_port")
 
-@app.route("/form",methods=['POST'])
+@app.route("/form",methods=['POST','GET'])
 def form():
     return render_template("form.html",port=port,update_con_name=update_con_name,home_con_name=home_con_name,home_port=home_port,custom_network=custom_network_name,update_port=update_port)
 
