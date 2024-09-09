@@ -4,9 +4,9 @@ app = Flask("crud_read_app")
 
 redis_host=os.environ.get("redis_host")
 redis=redis.Redis(host=redis_host, port="6379")
-frontend_con_name = os.environ.get("frontend_con_name")
+home_con_name = os.environ.get("home_con_name")
 custom_network_name = os.environ.get("custom_network_name")
-frontend_port = os.environ.get("frontend_port")
+home_port = os.environ.get("home_port")
 @app.route('/list', methods=['POST'])
 def db_storage():
 
@@ -22,7 +22,7 @@ def db_storage():
     #output = f"The user {name} with employee ID {employee_id} was successfully updated to DB"
     print(decoded_data)
     #return render_template("create.html",name=name,employee_id=employee_id,employee_mail=employee_mail)
-    return render_template("list.html",output=decoded_data,frontend_con_name=frontend_con_name,custom_network_name=custom_network_name,frontend_port=frontend_port)
+    return render_template("list.html",output=decoded_data,home_con_name=home_con_name,custom_network_name=custom_network_name,home_port=home_port)
 if __name__ == "__main__":
     port=os.environ.get("read_port")
     app.run(debug=True, host="0.0.0.0", port=port)
