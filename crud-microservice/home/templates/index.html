@@ -1,43 +1,22 @@
 <center><h1>Welcome to My CRUD App</h1>
     <h2>Select the options according to your needs</h2>
     <form method="POST">  
-	    <h3>Need to create data?Press Create button.</h3>
+	    <h3>Need to create data?  Press Create button.</h3>
 	    <button type="submit" value="Create" formaction="http://{{ create_con_name }}.{{ custom_network }}:{{ create_port }}/form">Create</button>
 	    <br>
 	    <br>
-	    <h3>Want to Read some data? Fill the name details</h3>
-	    <input name="employee_name">
-    <button type="submit" value="Read" formaction="http://{{ read_con_name }}.{{ custom_network }}:{{ read_port }}/list">Read</button>
+	    <h3>Need to Read Existing data? Press Read button</h3>
+    <button type="submit" value="Read" formaction="http://{{ read_con_name }}.{{ custom_network }}:{{ read_port }}/form">Read</button>
           <br>
             <br>
-	    <h3>Need to update Existing data?Fill the name details</h3>
-<input name="update_employee_name">
-            <select name="update_key">
+	    <h3>Need to update Existing data?  Press Update button</h3>
+            <button type="submit" value="Update" formaction="http://{{ update_con_name }}.{{ custom_network }}:{{ update_port }}/form">Update</button>
 
-                    <option value="employee_id">Employee_ID</option>
- <option value="employee_mail">Employee_Mail</option>
- </select>
- <input name="update_value" >
- <button type="submit" value="Update" formaction="http://{{ update_con_name }}.{{ custom_network }}:{{ update_port }}/update">Update</button>
   <br>
             <br>
-	    <h3>Need to delete any data? Fill the required details</h3>
-	    <input name="delete_employee_name">
+            <h3>Need to Delete Existing data?  Press Delete button</h3>
 
-
-
-
-            <select name="delete_key">
-
-                    <option value="delete_employee_id">Employee_ID</option>
- <option value="delete_employee_mail">Employee_Mail</option>
- <option value="delete_user">DeleteUser</option>
- </select>
-
-
-
-	<button type="submit" value="Delete" formaction="http://{{ delete_con_name }}.{{ custom_network }}:{{ delete_port }}/delete">Delete</button>
-  <br>
-            <br>
+            <button type="submit" value="Delete" formaction="http://{{ delete_con_name }}.{{ custom_network }}:{{ delete_port }}/form">Delete</button>
+  
 
     </form></center>

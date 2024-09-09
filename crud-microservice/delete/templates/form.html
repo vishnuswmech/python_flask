@@ -1,0 +1,19 @@
+<br>
+<br>
+<br>
+<br>
+<center><form action="/delete" method="POST">
+   <h3>Need to delete any data? Fill the required details</h3>
+	 Employee Name  <input name="delete_employee_name" required> <br> <br>
+   Choose Field to Delete  <select name="delete_key">
+   <option value="delete_employee_id">Employee_ID</option>
+   <option value="delete_employee_mail">Employee_Mail</option>
+   <option value="delete_user">DeleteUser</option>
+   </select>
+   <br>
+   <br>
+<input type="submit" value="Delete">
+</form>
+<form action="http://{{ home_con_name }}.{{ custom_network }}:{{ home_port }}" method="GET">
+  <input type="submit" value="return to home page">
+</form></center>
