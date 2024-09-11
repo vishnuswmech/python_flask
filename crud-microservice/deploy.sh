@@ -1,7 +1,6 @@
 #!/bin/bash
 set -o allexport
 source deploy.env
-docker rm -f $(docker ps -aq)
 
 random_sha_full=$(date +%s%N | sha256sum | awk '{print $1'})
 random_sha=${random_sha_full:0:5}
