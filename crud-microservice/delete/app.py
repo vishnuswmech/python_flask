@@ -29,8 +29,7 @@ class CustomFormatter(logging.Formatter):
         log_fmt = self.FORMATS.get(record.levelno)
         formatter = logging.Formatter(log_fmt,datefmt=self.datefmt)
         return formatter.format(record)
-# create logger with 'sanity check application'
-logger = logging.getLogger("Sanity Checks")
+logger = logging.getLogger("delete Module")
 logger.setLevel(logging.DEBUG)
 
 #create filehandler for logging
@@ -40,13 +39,13 @@ class ISTFileFormatter(logging.Formatter):
         ist_timezone = pytz.timezone('Asia/Kolkata')  # IST timezone
         ist_datetime = datetime.datetime.now(ist_timezone)
         return ist_datetime.strftime("%Y_%m_%d_%H_%M_%S_IST")
-fileformatter = ISTFileFormatter('%(asctime)s - sanity checks - %(levelname)s - %(message)s')
+fileformatter = ISTFileFormatter('%(asctime)s - delete Module - %(levelname)s - %(message)s')
 
 current_datetime = datetime.datetime.now(pytz.utc)
 ist_timezone = pytz.timezone('Asia/Kolkata')
 ist_datetime = datetime.datetime.now(ist_timezone)
 suffix = ist_datetime.strftime("_%Y_%m_%d_%H_%M_%S_IST")
-code_execution_log_file = f"infra_sanity_checks_{suffix}.log"
+code_execution_log_file = f"delete_module_{suffix}.log"
 error_execution_log_file = f"{code_execution_log_file}"
 
 for file_path in glob.glob(os.path.join(current_directory, file_pattern)):

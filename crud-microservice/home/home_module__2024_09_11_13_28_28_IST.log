@@ -1,0 +1,72 @@
+2024_09_11_13_28_53_IST - home-module - INFO - The Create container name is crud-create-service
+2024_09_11_13_28_53_IST - home-module - INFO - The Create module port is 5657
+2024_09_11_13_28_53_IST - home-module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_28_53_IST - home-module - INFO - The Read container name is crud-read-service
+2024_09_11_13_28_53_IST - home-module - INFO - The Read module port is 5658
+2024_09_11_13_28_53_IST - home-module - INFO - The Update container name is crud-update-service
+2024_09_11_13_28_53_IST - home-module - INFO - The Update module port is 5659
+2024_09_11_13_28_53_IST - home-module - INFO - The Delete container name is crud-delete-service
+2024_09_11_13_28_53_IST - home-module - INFO - The Delete module port is 5660
+2024_09_11_13_29_25_IST - home-module - INFO - The Create container name is crud-create-service
+2024_09_11_13_29_25_IST - home-module - INFO - The Create module port is 5657
+2024_09_11_13_29_25_IST - home-module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_29_25_IST - home-module - INFO - The Read container name is crud-read-service
+2024_09_11_13_29_25_IST - home-module - INFO - The Read module port is 5658
+2024_09_11_13_29_25_IST - home-module - INFO - The Update container name is crud-update-service
+2024_09_11_13_29_25_IST - home-module - INFO - The Update module port is 5659
+2024_09_11_13_29_25_IST - home-module - INFO - The Delete container name is crud-delete-service
+2024_09_11_13_29_25_IST - home-module - INFO - The Delete module port is 5660
+2024_09_11_13_29_54_IST - home-module - INFO - The Create container name is crud-create-service
+2024_09_11_13_29_54_IST - home-module - INFO - The Create module port is 5657
+2024_09_11_13_29_54_IST - home-module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_29_54_IST - home-module - INFO - The Read container name is crud-read-service
+2024_09_11_13_29_54_IST - home-module - INFO - The Read module port is 5658
+2024_09_11_13_29_54_IST - home-module - INFO - The Update container name is crud-update-service
+2024_09_11_13_29_54_IST - home-module - INFO - The Update module port is 5659
+2024_09_11_13_29_54_IST - home-module - INFO - The Delete container name is crud-delete-service
+2024_09_11_13_29_54_IST - home-module - INFO - The Delete module port is 5660
+2024_09_11_13_30_21_IST - home-module - INFO - The Create container name is crud-create-service
+2024_09_11_13_30_21_IST - home-module - INFO - The Create module port is 5657
+2024_09_11_13_30_21_IST - home-module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_30_21_IST - home-module - INFO - The Read container name is crud-read-service
+2024_09_11_13_30_21_IST - home-module - INFO - The Read module port is 5658
+2024_09_11_13_30_21_IST - home-module - INFO - The Update container name is crud-update-service
+2024_09_11_13_30_21_IST - home-module - INFO - The Update module port is 5659
+2024_09_11_13_30_21_IST - home-module - INFO - The Delete container name is crud-delete-service
+2024_09_11_13_30_21_IST - home-module - INFO - The Delete module port is 5660
+2024_09_11_13_31_00_IST - home-module - INFO - The Create container name is crud-create-service
+2024_09_11_13_31_00_IST - home-module - INFO - The Create module port is 5657
+2024_09_11_13_31_00_IST - home-module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_31_00_IST - home-module - INFO - The Read container name is crud-read-service
+2024_09_11_13_31_00_IST - home-module - INFO - The Read module port is 5658
+2024_09_11_13_31_00_IST - home-module - INFO - The Update container name is crud-update-service
+2024_09_11_13_31_00_IST - home-module - INFO - The Update module port is 5659
+2024_09_11_13_31_00_IST - home-module - INFO - The Delete container name is crud-delete-service
+2024_09_11_13_31_00_IST - home-module - INFO - The Delete module port is 5660
+2024_09_11_13_31_11_IST - home-module - INFO - The Create container name is crud-create-service
+2024_09_11_13_31_11_IST - home-module - INFO - The Create module port is 5657
+2024_09_11_13_31_11_IST - home-module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_31_11_IST - home-module - INFO - The Read container name is crud-read-service
+2024_09_11_13_31_11_IST - home-module - INFO - The Read module port is 5658
+2024_09_11_13_31_11_IST - home-module - INFO - The Update container name is crud-update-service
+2024_09_11_13_31_11_IST - home-module - INFO - The Update module port is 5659
+2024_09_11_13_31_11_IST - home-module - INFO - The Delete container name is crud-delete-service
+2024_09_11_13_31_11_IST - home-module - INFO - The Delete module port is 5660
+2024_09_11_13_31_45_IST - home-module - INFO - The Create container name is crud-create-service
+2024_09_11_13_31_45_IST - home-module - INFO - The Create module port is 5657
+2024_09_11_13_31_45_IST - home-module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_31_45_IST - home-module - INFO - The Read container name is crud-read-service
+2024_09_11_13_31_45_IST - home-module - INFO - The Read module port is 5658
+2024_09_11_13_31_45_IST - home-module - INFO - The Update container name is crud-update-service
+2024_09_11_13_31_45_IST - home-module - INFO - The Update module port is 5659
+2024_09_11_13_31_45_IST - home-module - INFO - The Delete container name is crud-delete-service
+2024_09_11_13_31_45_IST - home-module - INFO - The Delete module port is 5660
+2024_09_11_13_31_59_IST - home-module - INFO - The Create container name is crud-create-service
+2024_09_11_13_31_59_IST - home-module - INFO - The Create module port is 5657
+2024_09_11_13_31_59_IST - home-module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_31_59_IST - home-module - INFO - The Read container name is crud-read-service
+2024_09_11_13_31_59_IST - home-module - INFO - The Read module port is 5658
+2024_09_11_13_31_59_IST - home-module - INFO - The Update container name is crud-update-service
+2024_09_11_13_31_59_IST - home-module - INFO - The Update module port is 5659
+2024_09_11_13_31_59_IST - home-module - INFO - The Delete container name is crud-delete-service
+2024_09_11_13_31_59_IST - home-module - INFO - The Delete module port is 5660

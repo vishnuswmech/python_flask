@@ -1,0 +1,116 @@
+2024_09_11_13_29_21_IST - read module - INFO - The Create container name is crud-create-service
+2024_09_11_13_29_21_IST - read module - INFO - The Create module port is 5657
+2024_09_11_13_29_21_IST - read module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_29_21_IST - read module - INFO - The Read container name is crud-read-service
+2024_09_11_13_29_21_IST - read module - INFO - The Home module port is 5658
+2024_09_11_13_29_21_IST - read module - INFO - The Update container name is crud-home-service
+2024_09_11_13_29_21_IST - read module - INFO - The Home module port is 5655
+2024_09_11_13_29_21_IST - read module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_29_21_IST - read module - INFO - The Employee name is vishnu-test89
+2024_09_11_13_29_21_IST - read module - INFO - The Name check from Redis is b'vishnu-test89'
+2024_09_11_13_29_21_IST - read module - INFO - The output from Redis for the vishnu-test89 user is {b'name': b'vishnu-test89', b'id': b'T6789', b'email': b'vishnu-test89@gmail.com'}
+2024_09_11_13_29_21_IST - read module - INFO - The user vishnu-test89 exists,retrieving the info {'name': 'vishnu-test89', 'id': 'T6789', 'email': 'vishnu-test89@gmail.com'}
+2024_09_11_13_29_57_IST - read module - INFO - The Create container name is crud-create-service
+2024_09_11_13_29_57_IST - read module - INFO - The Create module port is 5657
+2024_09_11_13_29_57_IST - read module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_29_57_IST - read module - INFO - The Read container name is crud-read-service
+2024_09_11_13_29_57_IST - read module - INFO - The Home module port is 5658
+2024_09_11_13_29_57_IST - read module - INFO - The Update container name is crud-home-service
+2024_09_11_13_29_57_IST - read module - INFO - The Home module port is 5655
+2024_09_11_13_29_57_IST - read module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_30_03_IST - read module - INFO - The Create container name is crud-create-service
+2024_09_11_13_30_03_IST - read module - INFO - The Create module port is 5657
+2024_09_11_13_30_03_IST - read module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_30_03_IST - read module - INFO - The Read container name is crud-read-service
+2024_09_11_13_30_03_IST - read module - INFO - The Home module port is 5658
+2024_09_11_13_30_03_IST - read module - INFO - The Update container name is crud-home-service
+2024_09_11_13_30_03_IST - read module - INFO - The Home module port is 5655
+2024_09_11_13_30_03_IST - read module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_30_03_IST - read module - INFO - The Employee name is vishnu-test89
+2024_09_11_13_30_03_IST - read module - INFO - The Name check from Redis is b'vishnu-test89'
+2024_09_11_13_30_03_IST - read module - INFO - The output from Redis for the vishnu-test89 user is {b'name': b'vishnu-test89', b'id': b'T6789', b'email': b'vishnu-test89@gmail.com'}
+2024_09_11_13_30_03_IST - read module - INFO - The user vishnu-test89 exists,retrieving the info {'name': 'vishnu-test89', 'id': 'T6789', 'email': 'vishnu-test89@gmail.com'}
+2024_09_11_13_30_07_IST - read module - INFO - The Create container name is crud-create-service
+2024_09_11_13_30_07_IST - read module - INFO - The Create module port is 5657
+2024_09_11_13_30_07_IST - read module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_30_07_IST - read module - INFO - The Read container name is crud-read-service
+2024_09_11_13_30_07_IST - read module - INFO - The Home module port is 5658
+2024_09_11_13_30_07_IST - read module - INFO - The Update container name is crud-home-service
+2024_09_11_13_30_07_IST - read module - INFO - The Home module port is 5655
+2024_09_11_13_30_07_IST - read module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_30_13_IST - read module - INFO - The Create container name is crud-create-service
+2024_09_11_13_30_13_IST - read module - INFO - The Create module port is 5657
+2024_09_11_13_30_13_IST - read module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_30_13_IST - read module - INFO - The Read container name is crud-read-service
+2024_09_11_13_30_13_IST - read module - INFO - The Home module port is 5658
+2024_09_11_13_30_13_IST - read module - INFO - The Update container name is crud-home-service
+2024_09_11_13_30_13_IST - read module - INFO - The Home module port is 5655
+2024_09_11_13_30_13_IST - read module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_30_13_IST - read module - INFO - The Employee name is dummy_user
+2024_09_11_13_30_13_IST - read module - INFO - The Name check from Redis is None
+2024_09_11_13_30_13_IST - read module - INFO - The output from Redis for the dummy_user user is {}
+2024_09_11_13_30_13_IST - read module - ERROR - The User dummy_user doesnt exists,Kindly check the name once
+2024_09_11_13_30_56_IST - read module - INFO - The Create container name is crud-create-service
+2024_09_11_13_30_56_IST - read module - INFO - The Create module port is 5657
+2024_09_11_13_30_56_IST - read module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_30_56_IST - read module - INFO - The Read container name is crud-read-service
+2024_09_11_13_30_56_IST - read module - INFO - The Home module port is 5658
+2024_09_11_13_30_56_IST - read module - INFO - The Update container name is crud-home-service
+2024_09_11_13_30_56_IST - read module - INFO - The Home module port is 5655
+2024_09_11_13_30_56_IST - read module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_30_56_IST - read module - INFO - The Employee name is vishnu-test89
+2024_09_11_13_30_56_IST - read module - INFO - The Name check from Redis is b'vishnu-test89'
+2024_09_11_13_30_56_IST - read module - INFO - The output from Redis for the vishnu-test89 user is {b'name': b'vishnu-test89', b'id': b'T1234', b'email': b'vishnu-test89@gmail.com'}
+2024_09_11_13_30_56_IST - read module - INFO - The user vishnu-test89 exists,retrieving the info {'name': 'vishnu-test89', 'id': 'T1234', 'email': 'vishnu-test89@gmail.com'}
+2024_09_11_13_31_01_IST - read module - INFO - The Create container name is crud-create-service
+2024_09_11_13_31_01_IST - read module - INFO - The Create module port is 5657
+2024_09_11_13_31_01_IST - read module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_31_01_IST - read module - INFO - The Read container name is crud-read-service
+2024_09_11_13_31_01_IST - read module - INFO - The Home module port is 5658
+2024_09_11_13_31_01_IST - read module - INFO - The Update container name is crud-home-service
+2024_09_11_13_31_01_IST - read module - INFO - The Home module port is 5655
+2024_09_11_13_31_01_IST - read module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_31_08_IST - read module - INFO - The Create container name is crud-create-service
+2024_09_11_13_31_08_IST - read module - INFO - The Create module port is 5657
+2024_09_11_13_31_08_IST - read module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_31_08_IST - read module - INFO - The Read container name is crud-read-service
+2024_09_11_13_31_08_IST - read module - INFO - The Home module port is 5658
+2024_09_11_13_31_08_IST - read module - INFO - The Update container name is crud-home-service
+2024_09_11_13_31_08_IST - read module - INFO - The Home module port is 5655
+2024_09_11_13_31_08_IST - read module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_31_08_IST - read module - INFO - The Employee name is vishnu-test89
+2024_09_11_13_31_08_IST - read module - INFO - The Name check from Redis is b'vishnu-test89'
+2024_09_11_13_31_08_IST - read module - INFO - The output from Redis for the vishnu-test89 user is {b'name': b'vishnu-test89', b'id': b'T1234', b'email': b'vishnu-test89@gmail.com'}
+2024_09_11_13_31_08_IST - read module - INFO - The user vishnu-test89 exists,retrieving the info {'name': 'vishnu-test89', 'id': 'T1234', 'email': 'vishnu-test89@gmail.com'}
+2024_09_11_13_31_41_IST - read module - INFO - The Create container name is crud-create-service
+2024_09_11_13_31_41_IST - read module - INFO - The Create module port is 5657
+2024_09_11_13_31_41_IST - read module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_31_41_IST - read module - INFO - The Read container name is crud-read-service
+2024_09_11_13_31_41_IST - read module - INFO - The Home module port is 5658
+2024_09_11_13_31_41_IST - read module - INFO - The Update container name is crud-home-service
+2024_09_11_13_31_41_IST - read module - INFO - The Home module port is 5655
+2024_09_11_13_31_41_IST - read module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_31_41_IST - read module - INFO - The Employee name is vishnu-test89
+2024_09_11_13_31_41_IST - read module - INFO - The Name check from Redis is b'vishnu-test89'
+2024_09_11_13_31_41_IST - read module - INFO - The output from Redis for the vishnu-test89 user is {b'name': b'vishnu-test89', b'email': b'vishnu-test89@gmail.com'}
+2024_09_11_13_31_41_IST - read module - INFO - The user vishnu-test89 exists,retrieving the info {'name': 'vishnu-test89', 'email': 'vishnu-test89@gmail.com'}
+2024_09_11_13_31_46_IST - read module - INFO - The Create container name is crud-create-service
+2024_09_11_13_31_46_IST - read module - INFO - The Create module port is 5657
+2024_09_11_13_31_46_IST - read module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_31_46_IST - read module - INFO - The Read container name is crud-read-service
+2024_09_11_13_31_46_IST - read module - INFO - The Home module port is 5658
+2024_09_11_13_31_46_IST - read module - INFO - The Update container name is crud-home-service
+2024_09_11_13_31_46_IST - read module - INFO - The Home module port is 5655
+2024_09_11_13_31_46_IST - read module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_31_53_IST - read module - INFO - The Create container name is crud-create-service
+2024_09_11_13_31_53_IST - read module - INFO - The Create module port is 5657
+2024_09_11_13_31_53_IST - read module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_31_53_IST - read module - INFO - The Read container name is crud-read-service
+2024_09_11_13_31_53_IST - read module - INFO - The Home module port is 5658
+2024_09_11_13_31_53_IST - read module - INFO - The Update container name is crud-home-service
+2024_09_11_13_31_53_IST - read module - INFO - The Home module port is 5655
+2024_09_11_13_31_53_IST - read module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_31_53_IST - read module - INFO - The Employee name is vishnu-test89
+2024_09_11_13_31_53_IST - read module - INFO - The Name check from Redis is b'vishnu-test89'
+2024_09_11_13_31_53_IST - read module - INFO - The output from Redis for the vishnu-test89 user is {b'name': b'vishnu-test89', b'email': b'vishnu-test89@gmail.com'}
+2024_09_11_13_31_53_IST - read module - INFO - The user vishnu-test89 exists,retrieving the info {'name': 'vishnu-test89', 'email': 'vishnu-test89@gmail.com'}

@@ -4,7 +4,7 @@
 <br>
 <center><form action="http://{{ update_con_name }}.{{ custom_network_name }}:{{ update_port }}/form" method="GET">
 	<br>
-	The User <b>{{ name }}</b> ia already exists with Employee ID <b>{{ employee_id }}</b> and Employee mail <b>{{ employee_mail }}</b>,Kindly check the name once.<br><br>
+	The User <b>{{ employee_name }}</b> already exists with Employee ID <b>{{ employee_id }}</b> and Employee mail <b>{{ employee_mail }}</b>,Kindly check the name once.<br><br>
     Feel free to use <b>Update</b> portal for Updating details for existing users"
     <br>
 	<br>
@@ -13,7 +13,7 @@
 <form action="/form" method="GET">
     <input type="submit" value="return to create page">
 </form>
-<form action="http://{{ home_con_name }}.{{ custom_network }}:{{ home_port }}" method="GET">
+<form action="http://{{ home_con_name }}.{{ custom_network_name }}:{{ home_port }}" method="GET">
 	<input type="submit" value="return to home page">
 </form></center>
 
