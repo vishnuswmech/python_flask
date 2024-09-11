@@ -1,0 +1,25 @@
+2024_09_11_10_24_28_IST - sanity checks - INFO - The Create container name is crud-create-service
+2024_09_11_10_24_28_IST - sanity checks - INFO - The Create module port is 5657
+2024_09_11_10_24_28_IST - sanity checks - INFO - The Custom docker network name is crud-net-58a0e
+2024_09_11_10_24_28_IST - sanity checks - INFO - The Read container name is crud-read-service
+2024_09_11_10_24_28_IST - sanity checks - INFO - The Read module port is 5658
+2024_09_11_10_24_28_IST - sanity checks - INFO - The Update container name is crud-update-service
+2024_09_11_10_24_28_IST - sanity checks - INFO - The Update module port is 5659
+2024_09_11_10_24_28_IST - sanity checks - INFO - The Redis host is crud-redis-service.crud-net-58a0e
+2024_09_11_10_24_28_IST - sanity checks - INFO - The Home module port is 5655
+2024_09_11_10_24_28_IST - sanity checks - INFO - The Home container is crud-home-service
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Create container name is crud-create-service
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Create module port is 5657
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Custom docker network name is crud-net-58a0e
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Read container name is crud-read-service
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Read module port is 5658
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Update container name is crud-update-service
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Update module port is 5659
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Redis host is crud-redis-service.crud-net-58a0e
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Home module port is 5655
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Home container is crud-home-service
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Username is swashikan
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Update key is employee_mail
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Update value is swashikan123@gmail.com
+2024_09_11_10_24_57_IST - sanity checks - INFO - The Name check from Redis is b'swashikan'
+2024_09_11_10_24_57_IST - sanity checks - INFO - The User Exists in Redis DB

@@ -1,0 +1,45 @@
+2024_09_11_10_22_15_IST - sanity checks - INFO - The Create container name is None
+2024_09_11_10_22_15_IST - sanity checks - INFO - The Create module port is 5657
+2024_09_11_10_22_15_IST - sanity checks - INFO - The Custom docker network name is crud-net-58a0e
+2024_09_11_10_22_15_IST - sanity checks - INFO - The Read container name is crud-read-service
+2024_09_11_10_22_15_IST - sanity checks - INFO - The Read module port is 5658
+2024_09_11_10_22_15_IST - sanity checks - INFO - The Update container name is crud-update-service
+2024_09_11_10_22_15_IST - sanity checks - INFO - The Update module port is 5659
+2024_09_11_10_22_15_IST - sanity checks - INFO - The Redis host is crud-redis-service.crud-net-58a0e
+2024_09_11_10_22_34_IST - sanity checks - INFO - The Create container name is None
+2024_09_11_10_22_34_IST - sanity checks - INFO - The Create module port is 5657
+2024_09_11_10_22_34_IST - sanity checks - INFO - The Custom docker network name is crud-net-58a0e
+2024_09_11_10_22_34_IST - sanity checks - INFO - The Read container name is crud-read-service
+2024_09_11_10_22_34_IST - sanity checks - INFO - The Read module port is 5658
+2024_09_11_10_22_34_IST - sanity checks - INFO - The Update container name is crud-update-service
+2024_09_11_10_22_34_IST - sanity checks - INFO - The Update module port is 5659
+2024_09_11_10_22_34_IST - sanity checks - INFO - The Redis host is crud-redis-service.crud-net-58a0e
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Create container name is None
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Create module port is 5657
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Custom docker network name is crud-net-58a0e
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Read container name is crud-read-service
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Read module port is 5658
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Update container name is crud-update-service
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Update module port is 5659
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Redis host is crud-redis-service.crud-net-58a0e
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Employee name is swashikan
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Employee ID is T123444
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Employee Mail is swashikan@saama.com
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Name check from Redis is None
+2024_09_11_10_22_50_IST - sanity checks - INFO - The Name check is None, so,creating New entry
+2024_09_11_10_24_19_IST - sanity checks - INFO - The Create container name is None
+2024_09_11_10_24_19_IST - sanity checks - INFO - The Create module port is 5657
+2024_09_11_10_24_19_IST - sanity checks - INFO - The Custom docker network name is crud-net-58a0e
+2024_09_11_10_24_19_IST - sanity checks - INFO - The Read container name is crud-read-service
+2024_09_11_10_24_19_IST - sanity checks - INFO - The Read module port is 5658
+2024_09_11_10_24_19_IST - sanity checks - INFO - The Update container name is crud-update-service
+2024_09_11_10_24_19_IST - sanity checks - INFO - The Update module port is 5659
+2024_09_11_10_24_19_IST - sanity checks - INFO - The Redis host is crud-redis-service.crud-net-58a0e
+2024_09_11_10_25_43_IST - sanity checks - INFO - The Create container name is None
+2024_09_11_10_25_43_IST - sanity checks - INFO - The Create module port is 5657
+2024_09_11_10_25_43_IST - sanity checks - INFO - The Custom docker network name is crud-net-58a0e
+2024_09_11_10_25_43_IST - sanity checks - INFO - The Read container name is crud-read-service
+2024_09_11_10_25_43_IST - sanity checks - INFO - The Read module port is 5658
+2024_09_11_10_25_43_IST - sanity checks - INFO - The Update container name is crud-update-service
+2024_09_11_10_25_43_IST - sanity checks - INFO - The Update module port is 5659
+2024_09_11_10_25_43_IST - sanity checks - INFO - The Redis host is crud-redis-service.crud-net-58a0e
