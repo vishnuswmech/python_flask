@@ -1,1 +1,2 @@
-[Screencast from 2024-09-06 19-16-54.webm](https://github.com/user-attachments/assets/787c86fa-9065-40db-b396-112f417e8c26)
+![Recording](https://github.com/user-attachments/assets/c18121e1-be6f-4878-b54d-4eb5718a9134)
+
