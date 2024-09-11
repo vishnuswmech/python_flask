@@ -29,7 +29,7 @@ class CustomFormatter(logging.Formatter):
         log_fmt = self.FORMATS.get(record.levelno)
         formatter = logging.Formatter(log_fmt,datefmt=self.datefmt)
         return formatter.format(record)
-logger = logging.getLogger("Read Module")
+logger = logging.getLogger("Update module")
 logger.setLevel(logging.DEBUG)
 
 #create filehandler for logging
@@ -39,13 +39,13 @@ class ISTFileFormatter(logging.Formatter):
         ist_timezone = pytz.timezone('Asia/Kolkata')  # IST timezone
         ist_datetime = datetime.datetime.now(ist_timezone)
         return ist_datetime.strftime("%Y_%m_%d_%H_%M_%S_IST")
-fileformatter = ISTFileFormatter('%(asctime)s - read module - %(levelname)s - %(message)s')
+fileformatter = ISTFileFormatter('%(asctime)s - update module - %(levelname)s - %(message)s')
 
 current_datetime = datetime.datetime.now(pytz.utc)
 ist_timezone = pytz.timezone('Asia/Kolkata')
 ist_datetime = datetime.datetime.now(ist_timezone)
 suffix = ist_datetime.strftime("_%Y_%m_%d_%H_%M_%S_IST")
-code_execution_log_file = f"read_module_{suffix}.log"
+code_execution_log_file = f"update_module_{suffix}.log"
 error_execution_log_file = f"{code_execution_log_file}"
 
 for file_path in glob.glob(os.path.join(current_directory, file_pattern)):
@@ -98,60 +98,74 @@ def exception_handler(func):
             raise
 
     return wrapper
-
-
-app = Flask("crud_read_app")
+app = Flask("crud_update_app")
 
 redis_host=os.environ.get("redis_host")
 redis=redis.Redis(host=redis_host, port="6379")
+
 home_con_name = os.environ.get("home_con_name")
 custom_network_name = os.environ.get("custom_network_name")
 home_port = os.environ.get("home_port")
-read_port = os.environ.get("read_port")
 read_con_name = os.environ.get("read_con_name")
+read_port = os.environ.get("read_port")
+home_con_name = os.environ.get("home_con_name")
+home_port = os.environ.get("home_port")
+update_con_name = os.environ.get("update_con_name")
+update_port = os.environ.get("update_port")
 create_port = os.environ.get("create_port")
 create_con_name = os.environ.get("create_con_name")
 
-
-@app.route("/form",methods=["POST","GET"])
+@app.route("/form",methods=['POST','GET'])
 def form():
     logger.info(f"The Create container name is {create_con_name}")
     logger.info(f"The Create module port is {create_port}")
     logger.info(f"The Custom docker network name is {custom_network_name}")
     logger.info(f"The Read container name is {read_con_name}")
-    logger.info(f"The Home module port is {read_port}")
-    logger.info(f"The Update container name is {home_con_name}")
-    logger.info(f"The Home module port is {home_port}")
+    logger.info(f"The Read module port is {read_port}")
+    logger.info(f"The Update container name is {update_con_name}")
+    logger.info(f"The Update module port is {update_port}")
     logger.info(f"The Redis host is {redis_host}")
-    return render_template("form.html",port=port,read_con_name=read_con_name,home_con_name=home_con_name,home_port=home_port,custom_network=custom_network_name,read_port=read_port)
+    logger.info(f"The Home module port is {home_port}")
+    logger.info(f"The Home container is {home_con_name}")
+    return render_template("form.html",port=port,update_con_name=update_con_name,home_con_name=home_con_name,home_port=home_port,custom_network=custom_network_name,update_port=update_port)
 
-
-@app.route('/list', methods=['POST'])
-def list():
-    name =  request.form.get("employee_name")
-    output = redis.hgetall(f"user:{name}")
-    check_name=redis.hget(f"user:{name}","name")
+@app.route('/update', methods=['POST'])
+def update():
     logger.info(f"The Create container name is {create_con_name}")
     logger.info(f"The Create module port is {create_port}")
     logger.info(f"The Custom docker network name is {custom_network_name}")
     logger.info(f"The Read container name is {read_con_name}")
-    logger.info(f"The Home module port is {read_port}")
-    logger.info(f"The Update container name is {home_con_name}")
-    logger.info(f"The Home module port is {home_port}")
+    logger.info(f"The Read module port is {read_port}")
+    logger.info(f"The Update container name is {update_con_name}")
+    logger.info(f"The Update module port is {update_port}")
     logger.info(f"The Redis host is {redis_host}")
-    logger.info(f"The Employee name is {name}")
+    logger.info(f"The Home module port is {home_port}")
+    logger.info(f"The Home container is {home_con_name}")
+    name =  request.form.get("update_employee_name")
+    logger.info(f"The Username is {name}")
+    update_key= request.form.get("update_key")
+    logger.info(f"The Update key is {update_key}")
+    update_value = request.form.get("update_value")
+    logger.info(f"The Update value is {update_value}")
+    check_name=redis.hget(f"user:{name}","name")
     logger.info(f"The Name check from Redis is {check_name}")
-    logger.info(f"The output from Redis for the {name} user is {output}")
     if check_name!=None:
-      decoded_data = {k.decode('utf-8'): v.decode('utf-8') for k, v in output.items()}
-      logger.info(f"The user {name} exists,retrieving the info {decoded_data}")
-      return render_template("list.html",output=decoded_data,home_con_name=home_con_name,custom_network_name=custom_network_name,home_port=home_port)
+      logger.info(f"The User Exists in Redis DB")
+      if update_key=="employee_id":
+        update_key="Employee ID"
+        redis.hset(f"user:{name}",mapping={"id":f"{update_value}"})
+      elif update_key=="employee_mail":
+        update_key="Employee Mail"
+        redis.hset(f"user:{name}",mapping={"email":f"{update_value}"})
+      else:
+        return "No Key is submitted to update"
+      return render_template("update.html",update_value=update_value,update_key=update_key,employee_name=name,read_port=read_port,home_con_name=home_con_name,custom_network_name=custom_network_name,home_port=home_port,read_con_name=read_con_name)
     else:
-      logger.error(f"The User {name} doesnt exists,Kindly check the name once")
+      logger.error(f"The User doesnt exists")
       return render_template("error.html",name=name,read_con_name=read_con_name,read_port=read_port,custom_network_name=custom_network_name,create_con_name=create_con_name,create_port=create_port,home_port=home_port,home_con_name=home_con_name)
 
 
 if __name__ == "__main__":
-    port=os.environ.get("read_port")
+    port=os.environ.get("update_port")
     app.run(debug=True, host="0.0.0.0", port=port)
 

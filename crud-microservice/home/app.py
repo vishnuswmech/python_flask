@@ -1,5 +1,5 @@
-from flask import Flask,render_template,request,jsonify
-import os,redis
+from flask import Flask,render_template,request
+import os
 import logging
 import datetime
 import pytz
@@ -7,7 +7,9 @@ import glob
 import traceback
 file_pattern = '*.log'
 current_directory = os.getcwd()
+app = Flask("crud_home_app")
 
+port=os.environ.get("home_port")
 class CustomFormatter(logging.Formatter):
 
     grey = "\x1b[38;20m"
@@ -29,7 +31,7 @@ class CustomFormatter(logging.Formatter):
         log_fmt = self.FORMATS.get(record.levelno)
         formatter = logging.Formatter(log_fmt,datefmt=self.datefmt)
         return formatter.format(record)
-logger = logging.getLogger("Read Module")
+logger = logging.getLogger("Home Module")
 logger.setLevel(logging.DEBUG)
 
 #create filehandler for logging
@@ -39,13 +41,13 @@ class ISTFileFormatter(logging.Formatter):
         ist_timezone = pytz.timezone('Asia/Kolkata')  # IST timezone
         ist_datetime = datetime.datetime.now(ist_timezone)
         return ist_datetime.strftime("%Y_%m_%d_%H_%M_%S_IST")
-fileformatter = ISTFileFormatter('%(asctime)s - read module - %(levelname)s - %(message)s')
+fileformatter = ISTFileFormatter('%(asctime)s - home-module - %(levelname)s - %(message)s')
 
 current_datetime = datetime.datetime.now(pytz.utc)
 ist_timezone = pytz.timezone('Asia/Kolkata')
 ist_datetime = datetime.datetime.now(ist_timezone)
 suffix = ist_datetime.strftime("_%Y_%m_%d_%H_%M_%S_IST")
-code_execution_log_file = f"read_module_{suffix}.log"
+code_execution_log_file = f"home_module_{suffix}.log"
 error_execution_log_file = f"{code_execution_log_file}"
 
 for file_path in glob.glob(os.path.join(current_directory, file_pattern)):
@@ -100,58 +102,28 @@ def exception_handler(func):
     return wrapper
 
 
-app = Flask("crud_read_app")
-
-redis_host=os.environ.get("redis_host")
-redis=redis.Redis(host=redis_host, port="6379")
-home_con_name = os.environ.get("home_con_name")
-custom_network_name = os.environ.get("custom_network_name")
-home_port = os.environ.get("home_port")
-read_port = os.environ.get("read_port")
-read_con_name = os.environ.get("read_con_name")
-create_port = os.environ.get("create_port")
-create_con_name = os.environ.get("create_con_name")
-
-
-@app.route("/form",methods=["POST","GET"])
-def form():
+create_con_name=os.environ.get("create_con_name")
+create_port=os.environ.get("create_port")
+custom_network=os.environ.get("custom_network_name")
+read_con_name=os.environ.get("read_con_name")
+read_port=os.environ.get("read_port")
+update_con_name=os.environ.get("update_con_name")
+update_port=os.environ.get("update_port")
+delete_con_name=os.environ.get("delete_con_name") 
+delete_port=os.environ.get("delete_port")
+@app.route("/")
+def root():
     logger.info(f"The Create container name is {create_con_name}")
     logger.info(f"The Create module port is {create_port}")
-    logger.info(f"The Custom docker network name is {custom_network_name}")
+    logger.info(f"The Custom docker network name is {custom_network}")
     logger.info(f"The Read container name is {read_con_name}")
-    logger.info(f"The Home module port is {read_port}")
-    logger.info(f"The Update container name is {home_con_name}")
-    logger.info(f"The Home module port is {home_port}")
-    logger.info(f"The Redis host is {redis_host}")
-    return render_template("form.html",port=port,read_con_name=read_con_name,home_con_name=home_con_name,home_port=home_port,custom_network=custom_network_name,read_port=read_port)
+    logger.info(f"The Read module port is {read_port}")
+    logger.info(f"The Update container name is {update_con_name}")
+    logger.info(f"The Update module port is {update_port}")
+    logger.info(f"The Delete container name is {delete_con_name}")
+    logger.info(f"The Delete module port is {delete_port}")
+    return render_template("index.html",delete_con_name=delete_con_name,delete_port=delete_port,update_con_name=update_con_name,update_port=update_port,create_con_name=create_con_name,read_con_name=read_con_name,read_port=read_port,custom_network=custom_network,create_port=create_port)
 
-
-@app.route('/list', methods=['POST'])
-def list():
-    name =  request.form.get("employee_name")
-    output = redis.hgetall(f"user:{name}")
-    check_name=redis.hget(f"user:{name}","name")
-    logger.info(f"The Create container name is {create_con_name}")
-    logger.info(f"The Create module port is {create_port}")
-    logger.info(f"The Custom docker network name is {custom_network_name}")
-    logger.info(f"The Read container name is {read_con_name}")
-    logger.info(f"The Home module port is {read_port}")
-    logger.info(f"The Update container name is {home_con_name}")
-    logger.info(f"The Home module port is {home_port}")
-    logger.info(f"The Redis host is {redis_host}")
-    logger.info(f"The Employee name is {name}")
-    logger.info(f"The Name check from Redis is {check_name}")
-    logger.info(f"The output from Redis for the {name} user is {output}")
-    if check_name!=None:
-      decoded_data = {k.decode('utf-8'): v.decode('utf-8') for k, v in output.items()}
-      logger.info(f"The user {name} exists,retrieving the info {decoded_data}")
-      return render_template("list.html",output=decoded_data,home_con_name=home_con_name,custom_network_name=custom_network_name,home_port=home_port)
-    else:
-      logger.error(f"The User {name} doesnt exists,Kindly check the name once")
-      return render_template("error.html",name=name,read_con_name=read_con_name,read_port=read_port,custom_network_name=custom_network_name,create_con_name=create_con_name,create_port=create_port,home_port=home_port,home_con_name=home_con_name)
-
-
-if __name__ == "__main__":
-    port=os.environ.get("read_port")
-    app.run(debug=True, host="0.0.0.0", port=port)
+port=os.environ.get("home_port")
+app.run(debug=True,host="0.0.0.0",port=port)
 
