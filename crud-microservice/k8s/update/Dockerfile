@@ -1,5 +1,5 @@
-from ubuntu:latest
-run apt update -y && apt install python3 python3-pip vim curl net-tools iputils-ping -y
+from alpine:latest
+run apk add --no-cache python3 py3-pip
 run pip3 install flask redis loguru pytz --break-system-packages
 workdir /root/flask
 copy . ./

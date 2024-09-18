@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vishnu-deploy
+  labels:
+    app: vishnu-app
+  namespace: vishnu-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vishnu-app
+  template:
+    metadata:
+      labels:
+        app: vishnu-app
+      name: vishnu-pod123
+    spec:
+      initContainers:
+      - name: vishnu-init
+        image: busybox:latest
+        command: ["sleep","10"]
+      containers:
+      - name: vishnu-con123
+        image: busybox:latest
+        command: ["sleep","5000"]

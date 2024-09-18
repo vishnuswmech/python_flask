@@ -2,21 +2,21 @@
     <h2>Select the options according to your needs</h2>
     <form method="POST">  
 	    <h3>Need to create data?  Press Create button.</h3>
-	    <button type="submit" value="Create" formaction="http://{{ create_service_url }}/form">Create</button>
+	    <button type="submit" value="Create" formaction="{{ create_service_url }}/form">Create</button>
 	    <br>
 	    <br>
 	    <h3>Need to Read Existing data? Press Read button</h3>
-    <button type="submit" value="Read" formaction="http://{{ read_con_name }}.{{ custom_network }}:{{ read_port }}/form">Read</button>
+    <button type="submit" value="Read" formaction="{{ read_service_url }}/form">Read</button>
           <br>
             <br>
 	    <h3>Need to update Existing data?  Press Update button</h3>
-            <button type="submit" value="Update" formaction="http://{{ update_con_name }}.{{ custom_network }}:{{ update_port }}/form">Update</button>
+            <button type="submit" value="Update" formaction="{{ update_service_url }}/form">Update</button>
 
   <br>
             <br>
             <h3>Need to Delete Existing data?  Press Delete button</h3>
 
-            <button type="submit" value="Delete" formaction="http://{{ delete_con_name }}.{{ custom_network }}:{{ delete_port }}/form">Delete</button>
+            <button type="submit" value="Delete" formaction="{{ delete_service_url }}/form">Delete</button>
   
 
     </form></center>

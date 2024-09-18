@@ -1,4 +1,4 @@
-<center><form action="http://{{ read_con_name }}.{{ custom_network_name }}:{{ read_port }}/list" method="POST">
+<center><form action="{{ read_service_url }}/list" method="POST">
 	<br>
     <input type="hidden" name="employee_name" value={{ employee_name }}>
 	The User <b>{{ employee_name }}</b> with Update Key <b>{{ update_key }}</b> is updated with <b>{{ update_value }}</b> successfully to Redis host"
@@ -7,7 +7,7 @@
 	<br>
 	<input type="submit" value="list info">
 </form>
-<form action="http://{{ home_con_name }}.{{ custom_network_name }}:{{ home_port }}" method="GET">
+<form action="{{ home_service_url }}" method="GET">
      <input type="submit" value="return to home page">
 </form>
 <form action="/form" method="GET">

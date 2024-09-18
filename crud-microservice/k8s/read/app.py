@@ -104,26 +104,18 @@ app = Flask("crud_read_app")
 
 redis_host=os.environ.get("redis_host")
 redis=redis.Redis(host=redis_host, port="6379")
-home_con_name = os.environ.get("home_con_name")
-custom_network_name = os.environ.get("custom_network_name")
-home_port = os.environ.get("home_port")
-read_port = os.environ.get("read_port")
-read_con_name = os.environ.get("read_con_name")
-create_port = os.environ.get("create_port")
-create_con_name = os.environ.get("create_con_name")
+home_service_url = os.environ.get("home_service_url")
+read_service_url = os.environ.get("read_service_url")
+create_service_url = os.environ.get("create_service_url")
 
 
 @app.route("/form",methods=["POST","GET"])
 def form():
-    logger.info(f"The Create container name is {create_con_name}")
-    logger.info(f"The Create module port is {create_port}")
-    logger.info(f"The Custom docker network name is {custom_network_name}")
-    logger.info(f"The Read container name is {read_con_name}")
-    logger.info(f"The Home module port is {read_port}")
-    logger.info(f"The Update container name is {home_con_name}")
-    logger.info(f"The Home module port is {home_port}")
+    logger.info(f"The Create container name is {create_service_url}")
+    logger.info(f"The Read container name is {read_service_url}")
+    logger.info(f"The Update container name is {home_service_url}")
     logger.info(f"The Redis host is {redis_host}")
-    return render_template("form.html",port=port,read_con_name=read_con_name,home_con_name=home_con_name,home_port=home_port,custom_network=custom_network_name,read_port=read_port)
+    return render_template("form.html",port=port,read_service_url=read_service_url,home_service_url=home_service_url)
 
 
 @app.route('/list', methods=['POST'])
@@ -131,13 +123,9 @@ def list():
     name =  request.form.get("employee_name")
     output = redis.hgetall(f"user:{name}")
     check_name=redis.hget(f"user:{name}","name")
-    logger.info(f"The Create container name is {create_con_name}")
-    logger.info(f"The Create module port is {create_port}")
-    logger.info(f"The Custom docker network name is {custom_network_name}")
-    logger.info(f"The Read container name is {read_con_name}")
-    logger.info(f"The Home module port is {read_port}")
-    logger.info(f"The Update container name is {home_con_name}")
-    logger.info(f"The Home module port is {home_port}")
+    logger.info(f"The Create container name is {create_service_url}")
+    logger.info(f"The Read container name is {read_service_url}")
+    logger.info(f"The Update container name is {home_service_url}")
     logger.info(f"The Redis host is {redis_host}")
     logger.info(f"The Employee name is {name}")
     logger.info(f"The Name check from Redis is {check_name}")
@@ -145,10 +133,10 @@ def list():
     if check_name!=None:
       decoded_data = {k.decode('utf-8'): v.decode('utf-8') for k, v in output.items()}
       logger.info(f"The user {name} exists,retrieving the info {decoded_data}")
-      return render_template("list.html",output=decoded_data,home_con_name=home_con_name,custom_network_name=custom_network_name,home_port=home_port)
+      return render_template("list.html",output=decoded_data,home_service_url=home_service_url)
     else:
       logger.error(f"The User {name} doesnt exists,Kindly check the name once")
-      return render_template("error.html",name=name,read_con_name=read_con_name,read_port=read_port,custom_network_name=custom_network_name,create_con_name=create_con_name,create_port=create_port,home_port=home_port,home_con_name=home_con_name)
+      return render_template("error.html",name=name,read_service_url=read_service_url,create_service_url=create_service_url,home_service_url=home_service_url)
 
 
 if __name__ == "__main__":
