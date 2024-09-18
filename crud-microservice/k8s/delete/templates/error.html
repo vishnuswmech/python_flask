@@ -1,0 +1,18 @@
+<br>
+<br>
+<br>
+<br>
+<center><form action="/form" method="GET">
+	<br>
+	The User <b>{{ name }}</b> doesnt exists, Kindly check the <b>Username</b> once.<br><br>
+    Feel free to use <b>Create</b> module to create new users"
+    <br>
+	<br>
+	<input type="submit" value="Return to Delete page">
+</form>
+<form action="{{ create_service_url }}/form" method="GET">
+    <input type="submit" value="Go to create page">
+</form>
+<form action="{{ home_service_url }}" method="GET">
+	<input type="submit" value="return to home page">
+</form></center>

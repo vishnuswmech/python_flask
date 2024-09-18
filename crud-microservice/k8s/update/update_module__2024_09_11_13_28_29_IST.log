@@ -1,0 +1,50 @@
+2024_09_11_13_30_23_IST - update module - INFO - The Create container name is crud-create-service
+2024_09_11_13_30_23_IST - update module - INFO - The Create module port is 5657
+2024_09_11_13_30_23_IST - update module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_30_23_IST - update module - INFO - The Read container name is crud-read-service
+2024_09_11_13_30_23_IST - update module - INFO - The Read module port is 5658
+2024_09_11_13_30_23_IST - update module - INFO - The Update container name is crud-update-service
+2024_09_11_13_30_23_IST - update module - INFO - The Update module port is 5659
+2024_09_11_13_30_23_IST - update module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_30_23_IST - update module - INFO - The Home module port is 5655
+2024_09_11_13_30_23_IST - update module - INFO - The Home container is crud-home-service
+2024_09_11_13_30_36_IST - update module - INFO - The Create container name is crud-create-service
+2024_09_11_13_30_36_IST - update module - INFO - The Create module port is 5657
+2024_09_11_13_30_36_IST - update module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_30_36_IST - update module - INFO - The Read container name is crud-read-service
+2024_09_11_13_30_36_IST - update module - INFO - The Read module port is 5658
+2024_09_11_13_30_36_IST - update module - INFO - The Update container name is crud-update-service
+2024_09_11_13_30_36_IST - update module - INFO - The Update module port is 5659
+2024_09_11_13_30_36_IST - update module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_30_36_IST - update module - INFO - The Home module port is 5655
+2024_09_11_13_30_36_IST - update module - INFO - The Home container is crud-home-service
+2024_09_11_13_30_36_IST - update module - INFO - The Username is dummy_user
+2024_09_11_13_30_36_IST - update module - INFO - The Update key is employee_id
+2024_09_11_13_30_36_IST - update module - INFO - The Update value is T8765
+2024_09_11_13_30_36_IST - update module - INFO - The Name check from Redis is None
+2024_09_11_13_30_36_IST - update module - ERROR - The User doesnt exists
+2024_09_11_13_30_41_IST - update module - INFO - The Create container name is crud-create-service
+2024_09_11_13_30_41_IST - update module - INFO - The Create module port is 5657
+2024_09_11_13_30_41_IST - update module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_30_41_IST - update module - INFO - The Read container name is crud-read-service
+2024_09_11_13_30_41_IST - update module - INFO - The Read module port is 5658
+2024_09_11_13_30_41_IST - update module - INFO - The Update container name is crud-update-service
+2024_09_11_13_30_41_IST - update module - INFO - The Update module port is 5659
+2024_09_11_13_30_41_IST - update module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_30_41_IST - update module - INFO - The Home module port is 5655
+2024_09_11_13_30_41_IST - update module - INFO - The Home container is crud-home-service
+2024_09_11_13_30_52_IST - update module - INFO - The Create container name is crud-create-service
+2024_09_11_13_30_52_IST - update module - INFO - The Create module port is 5657
+2024_09_11_13_30_52_IST - update module - INFO - The Custom docker network name is crud-net-0a2cf
+2024_09_11_13_30_52_IST - update module - INFO - The Read container name is crud-read-service
+2024_09_11_13_30_52_IST - update module - INFO - The Read module port is 5658
+2024_09_11_13_30_52_IST - update module - INFO - The Update container name is crud-update-service
+2024_09_11_13_30_52_IST - update module - INFO - The Update module port is 5659
+2024_09_11_13_30_52_IST - update module - INFO - The Redis host is crud-redis-service.crud-net-0a2cf
+2024_09_11_13_30_52_IST - update module - INFO - The Home module port is 5655
+2024_09_11_13_30_52_IST - update module - INFO - The Home container is crud-home-service
+2024_09_11_13_30_52_IST - update module - INFO - The Username is vishnu-test89
+2024_09_11_13_30_52_IST - update module - INFO - The Update key is employee_id
+2024_09_11_13_30_52_IST - update module - INFO - The Update value is T1234
+2024_09_11_13_30_52_IST - update module - INFO - The Name check from Redis is b'vishnu-test89'
+2024_09_11_13_30_52_IST - update module - INFO - The User Exists in Redis DB

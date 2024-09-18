@@ -1,0 +1,23 @@
+<br>
+<br>
+<br>
+<br>
+<center><form action="/update" method="POST">
+    <h3>Need to update Existing data?Fill the name details</h3>
+    Employee Name <input name="update_employee_name" required> <br>
+    <br>
+    Choose Field to update <select name="update_key">
+    <option value="employee_id">Employee_ID</option>
+    <option value="employee_mail">Employee_Mail</option>
+    </select>
+    <br>
+    <br>
+    Update the value <input name="update_value" required>
+    <br>
+    <br>
+    <input type="submit" value="Update">
+    <br>
+</form>
+<form action="{{ home_service_url }}" method="GET">
+    <input type="submit" value="return to home page">
+</form></center>
