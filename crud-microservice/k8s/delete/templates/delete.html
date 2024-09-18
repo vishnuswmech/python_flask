@@ -1,0 +1,12 @@
+<center><form action="http://{{ read_con_name }}.{{ custom_network_name }}:{{ read_port }}/list" method="POST">
+	<br>
+<input type="hidden" name="employee_name" value={{ employee_name }}>
+The User <b>{{ employee_name }}</b> with delete key <b>{{ delete_key }}</b> is deleted  successfully to Redis host"
+
+	<br>
+	<br>
+	<input type="submit" value="list info">
+</form>
+<form action="http://{{ home_con_name }}.{{ custom_network_name }}:{{ home_port }}" method="GET">
+  <input type="submit" value="return to home page">
+</form></center>
