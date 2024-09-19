@@ -43,6 +43,7 @@ service:
   type: ClusterIP
   port: 80
   target_port: 8080
+  jnlpPort: 50000
 
 ingress:
   enabled: true
