@@ -1,0 +1,33 @@
+pipeline {
+    agent {
+        kubernetes {
+            yamlFile 'k8s-crud-microservice/jenkins/AgentPod.yaml'
+        }
+    }
+    environment {
+      
+code_path="k8s-crud-microservice/build/code"
+docker_cred_id="docker_password"
+
+    }
+    stages {
+        stage('Home-Build') {
+            steps {
+                container('kaniko-image-builder') {
+                    script {
+                        withCredentials([string(credentialsId: env.docker_password, variable: 'user_password')]) {
+docker login -u vishnuswmech -p $user_password
+                        cd $code_path/home
+/kaniko/executor \
+  --destination="vishnuswmech/k8s-crud-home:v1" \
+  --dockerfile=Dockerfile \
+  --context=./
+
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

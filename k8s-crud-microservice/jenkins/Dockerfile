@@ -1,0 +1,83 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install curl vim zip -y && apt-get install postgresql-client  postgresql-common -y
+RUN apt-get install wget openjdk-17-jdk openjdk-17-jre maven -y
+RUN wget https://github.com/mozilla/sops/releases/download/v3.7.3/sops_3.7.3_amd64.deb && dpkg -i sops_3.7.3_amd64.deb
+RUN apt-get install podman -y
+RUN apt-get install -y apt-transport-https ca-certificates curl
+RUN curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+RUN echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | tee /etc/apt/sources.list.d/kubernetes.list
+RUN apt-get update
+RUN apt-get install -y kubectl
+RUN wget https://get.helm.sh/helm-v3.9.3-linux-amd64.tar.gz && tar xvf helm-v3.9.3-linux-amd64.tar.gz && mv linux-amd64/helm /usr/local/bin
+RUN curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip && unzip awscliv2.zip && ./aws/install
+RUN apt-get install python3-pip -y
+RUN pip3 install requests
+RUN pip3 install SQLAlchemy==1.4.27
+RUN apt-get update
+RUN apt-get install -y kubectl
+RUN pip3 install ansible
+RUN ansible --version
+RUN apt-get install -y nodejs npm
+RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+RUN chmod 700 get_helm.sh
+RUN ./get_helm.sh
+ARG TARGETPLATFORM=linux/amd64
+ARG TF_VERSION=latest
+ARG TG_VERSION=latest
+ARG SLIM=no
+
+# Install apt prerequisits, retry since ubuntu archive is failing a lot
+SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
+# hadolint ignore=DL3008,SC2015
+RUN for i in {1..5}; do \
+    apt-get update -y && break || sleep 15; done ;\
+  for i in {1..5}; do \
+    apt-get install --no-install-recommends -y \
+      ca-certificates \
+      curl \
+      git \
+      jq \
+      vim \
+      unzip && break || sleep 15; done ;\
+  apt-get clean ;\
+  rm -rf /var/lib/apt/lists/*
+# Get Terraform by a specific version or search for the latest one
+SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
+# hadolint ignore=SC2015
+RUN if [ "${TARGETPLATFORM}" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "${TARGETPLATFORM}" = "linux/arm64" ]; then ARCHITECTURE=arm64; else ARCHITECTURE=amd64; fi ;\
+  if [ "${TF_VERSION}" = "latest" ]; then \
+    VERSION="$( curl -LsS https://releases.hashicorp.com/terraform/ | grep -Eo '/[.0-9]+/' | grep -Eo '[.0-9]+' | sort -V | tail -1 )" ;\
+  else \
+    VERSION="${TF_VERSION}" ;\
+  fi ;\
+  for i in {1..5}; do curl -LsS \
+    https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_${ARCHITECTURE}.zip -o ./terraform.zip \
+    && break || sleep 15; done ;\
+  unzip ./terraform.zip ;\
+  rm -f ./terraform.zip ;\
+  chmod +x ./terraform ;\
+  mv ./terraform /usr/bin/terraform
+
+# Get Terragrunt by a specific version or search for the latest one
+SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
+# hadolint ignore=SC2015
+RUN if [ "${TARGETPLATFORM}" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "${TARGETPLATFORM}" = "linux/arm64" ]; then ARCHITECTURE=arm64; else ARCHITECTURE=amd64; fi ;\
+  if [ "${TG_VERSION}" = "latest" ]; then \
+    VERSION="$( curl -LsS https://api.github.com/repos/gruntwork-io/terragrunt/releases/latest | jq -r .name )" ;\
+  else \
+    VERSION="v${TG_VERSION}" ;\
+  fi ;\
+  for i in {1..5}; do curl -LsS \
+    https://github.com/gruntwork-io/terragrunt/releases/download/${VERSION}/terragrunt_linux_${ARCHITECTURE} -o /usr/bin/terragrunt \
+    && break || sleep 15; done ;\
+  chmod +x /usr/bin/terragrunt
+
+# Get latest sops
+SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
+# hadolint ignore=SC2015
+RUN if [ "${SLIM}" = "no" ]; then \
+    if [ "${TARGETPLATFORM}" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "${TARGETPLATFORM}" = "linux/arm64" ]; then ARCHITECTURE=arm64; else ARCHITECTURE=amd64; fi ;\
+    DOWNLOAD_URL="$( curl -LsS https://api.github.com/repos/getsops/sops/releases/latest | grep -o -E "https://.+?\.linux.${ARCHITECTURE}" | head -1 )" ;\
+    for i in {1..5}; do curl -LsS "${DOWNLOAD_URL}" -o /usr/bin/sops && break || sleep 15; done ;\
+    chmod +x /usr/bin/sops ;\
+  fi
