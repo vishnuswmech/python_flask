@@ -16,12 +16,14 @@ docker_cred_id="docker_password"
                 container('kaniko-image-builder') {
                     script {
                         withCredentials([string(credentialsId: env.docker_password, variable: 'user_password')]) {
+sh '''
 docker login -u vishnuswmech -p $user_password
                         cd $code_path/home
 /kaniko/executor \
   --destination="vishnuswmech/k8s-crud-home:v1" \
   --dockerfile=Dockerfile \
   --context=./
+  '''
 
                         }
 

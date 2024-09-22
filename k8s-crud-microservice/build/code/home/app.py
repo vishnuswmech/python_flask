@@ -9,7 +9,6 @@ file_pattern = '*.log'
 current_directory = os.getcwd()
 app = Flask("crud_home_app")
 
-port=os.environ.get("home_port")
 class CustomFormatter(logging.Formatter):
 
     grey = "\x1b[38;20m"
@@ -114,6 +113,5 @@ def root():
     logger.info(f"The Delete container name is {delete_service_url}")
     return render_template("index.html",create_service_url=create_service_url,update_service_url=update_service_url,read_service_url=read_service_url)
 
-port=os.environ.get("home_port")
-app.run(debug=True,host="0.0.0.0",port=port)
+app.run(debug=True,host="0.0.0.0")
 

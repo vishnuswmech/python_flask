@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: create
+  labels:
+{{- with .Values.labels.create  }}
+{{- toYaml . | nindent 4 }}
+{{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.target_port }}
+      protocol: TCP
+      name: http
+    {{- with .Values.labels.create  }}
+  selector:
+    {{ toYaml . | nindent 4  }}
+{{- end }}
+    

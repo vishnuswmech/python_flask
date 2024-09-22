@@ -116,7 +116,7 @@ def form():
     logger.info(f"The Read container name is {read_service_url}")
     logger.info(f"The Update container name is {update_service_url}")
     logger.info(f"The Redis host is {redis_host}")
-    return render_template("form.html",port=port,create_service_url=create_service_url,home_service_url=home_service_url)
+    return render_template("form.html",create_service_url=create_service_url,home_service_url=home_service_url)
 
 @app.route('/create', methods=['POST'])
 def create():
@@ -144,5 +144,4 @@ def create():
       
 
 if __name__ == "__main__":
-    port=os.environ.get("create_port")
-    app.run(debug=True, host="0.0.0.0", port=port)
+    app.run(debug=True, host="0.0.0.0")
