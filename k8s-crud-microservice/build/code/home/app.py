@@ -1,5 +1,5 @@
-from flask import Flask,render_template,request,jsonify
-import os,redis
+from flask import Flask,render_template,request
+import os
 import logging
 import datetime
 import pytz
@@ -7,6 +7,7 @@ import glob
 import traceback
 file_pattern = '*.log'
 current_directory = os.getcwd()
+app = Flask("crud_home_app")
 
 class CustomFormatter(logging.Formatter):
 
@@ -29,7 +30,7 @@ class CustomFormatter(logging.Formatter):
         log_fmt = self.FORMATS.get(record.levelno)
         formatter = logging.Formatter(log_fmt,datefmt=self.datefmt)
         return formatter.format(record)
-logger = logging.getLogger("Create-module")
+logger = logging.getLogger("Home Module")
 logger.setLevel(logging.DEBUG)
 
 #create filehandler for logging
@@ -39,13 +40,13 @@ class ISTFileFormatter(logging.Formatter):
         ist_timezone = pytz.timezone('Asia/Kolkata')  # IST timezone
         ist_datetime = datetime.datetime.now(ist_timezone)
         return ist_datetime.strftime("%Y_%m_%d_%H_%M_%S_IST")
-fileformatter = ISTFileFormatter('%(asctime)s - create-module - %(levelname)s - %(message)s')
+fileformatter = ISTFileFormatter('%(asctime)s - home-module - %(levelname)s - %(message)s')
 
 current_datetime = datetime.datetime.now(pytz.utc)
 ist_timezone = pytz.timezone('Asia/Kolkata')
 ist_datetime = datetime.datetime.now(ist_timezone)
 suffix = ist_datetime.strftime("_%Y_%m_%d_%H_%M_%S_IST")
-code_execution_log_file = f"create_module_{suffix}.log"
+code_execution_log_file = f"home_module_{suffix}.log"
 error_execution_log_file = f"{code_execution_log_file}"
 
 for file_path in glob.glob(os.path.join(current_directory, file_pattern)):
@@ -100,49 +101,17 @@ def exception_handler(func):
     return wrapper
 
 
-app = Flask("crud_create_app")
-
-redis_host=os.environ.get("redis_host")
-redis=redis.Redis(host=redis_host, port="6379")
-read_service_url = os.environ.get("read_service_url")
 create_service_url=os.environ.get("create_service_url")
-home_service_url=os.environ.get("home_service_url")
+read_service_url=os.environ.get("read_service_url")
 update_service_url=os.environ.get("update_service_url")
-
-
-@app.route("/form",methods=["POST","GET"])
-def form():
-    logger.info(f"The Create container name is {create_service_url}")
+delete_service_url=os.environ.get("delete_service_url") 
+@app.route("/")
+def root():
+    logger.info(f"The Custom docker network name is {create_service_url}")
     logger.info(f"The Read container name is {read_service_url}")
     logger.info(f"The Update container name is {update_service_url}")
-    logger.info(f"The Redis host is {redis_host}")
-    return render_template("form.html",port=port,create_service_url=create_service_url,home_service_url=home_service_url)
+    logger.info(f"The Delete container name is {delete_service_url}")
+    return render_template("index.html",create_service_url=create_service_url,update_service_url=update_service_url,read_service_url=read_service_url)
 
-@app.route('/create', methods=['POST'])
-def create():
-    name =  request.form.get("employee_name")
-    employee_id= request.form.get("employee_id")
-    employee_mail = request.form.get("employee_mail")
-    logger.info(f"The Create container name is {create_service_url}")
-    logger.info(f"The Read container name is {read_service_url}")
-    logger.info(f"The Update container name is {update_service_url}")
-    logger.info(f"The Redis host is {redis_host}")
-    check_name=redis.hget(f"user:{name}","name")
-    logger.info(f"The Employee name is {name}")
-    logger.info(f"The Employee ID is {employee_id}")
-    logger.info(f"The Employee Mail is {employee_mail}")
-    logger.info(f"The Name check from Redis is {check_name}")
-    if check_name==None:
-      logger.info(f"The Name check is None, so,creating New entry")
-      redis.hset(f"user:{name}", mapping={"name": f"{name}", "id": f"{employee_id}", "email": f"{employee_mail}"})
-      return render_template("create.html",employee_id=employee_id,employee_mail=employee_mail,employee_name=name,home_service_url=home_service_url,read_service_url=read_service_url)
-    else:
-      logger.error(f"The name {name} already exists, kindly check the name once and use Update portal to update the details for existing users.")
-      return render_template("error.html",employee_id=employee_id,employee_mail=employee_mail,employee_name=name,update_service_url=update_service_url,home_service_url=home_service_url,create_service_url=create_service_url)
+app.run(debug=True,host="0.0.0.0")
 
-
-      
-
-if __name__ == "__main__":
-    port=os.environ.get("create_port")
-    app.run(debug=True, host="0.0.0.0", port=port)
