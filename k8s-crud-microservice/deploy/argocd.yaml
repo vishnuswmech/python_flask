@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: crud-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/vishnuswmech/python_flask
+    path: k8s-crud-microservice/deploy/helm-charts
+    targetRevision: "main"
+    helm:
+      releaseName: k8s-crud
+      valueFiles:
+      - values.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: crud-argo-ns
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
