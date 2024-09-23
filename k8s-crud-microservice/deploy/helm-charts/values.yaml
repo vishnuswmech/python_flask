@@ -6,12 +6,13 @@ replicaCount: 1
 
 image:
   registry: "vishnuswmech/k8s-crud"
-  pullPolicy: IfNotPresent
-  home_tag: home-v1
+  pullPolicy: "IfNotPresent"
+  home_tag: "home-v2"
   create_tag: "create-v2"
-  read_tag: "read-v1"
-  update_tag: "update-v1"
-  delete_Tag: "delete-v1"
+  read_tag: "read-v2"
+  update_tag: "update-v2"
+  delete_tag: "delete-v2"
+  redis_tag: "redis-v1"
 
   # Overrides the image tag whose default is the chart appVersion.
   
@@ -20,12 +21,12 @@ nameOverride: ""
 fullnameOverride: ""
   
 config:
-  create_service_url: "http://create.local"
-  home_service_url: "http://home.local"
-  delete_service_url: "http://delete.local"
-  read_service_url: "http://read.local"
-  update_service_url: "http://update.local"
-  redis_host_url: "http://redis.local"
+  create_service_url: "https://create.local"
+  home_service_url: "https://home.local"
+  delete_service_url: "https://delete.local"
+  read_service_url: "https://read.local"
+  update_service_url: "https://update.local"
+  redis_host_url: "redis-service"
 serviceAccount:
   # Specifies whether a service account should be created
   create: false
@@ -44,6 +45,14 @@ labels:
     app: home
   create:
     app: create
+  redis:
+    app: redis
+  update:
+    app: update
+  read:
+    app: read
+  delete:
+    app: delete
 podSecurityContext: {}
   # fsGroup: 2000
 
@@ -59,6 +68,7 @@ service:
   type: ClusterIP
   port: 80
   target_port: 5000
+  redis_port: 6379
 
 ingress:
   enabled: true
@@ -73,6 +83,21 @@ ingress:
           pathType: ImplementationSpecific
   create_host:
     - host: create.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  update_host:
+    - host: update.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  read_host:
+    - host: read.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  delete_host:
+    - host: delete.local
       paths:
         - path: /
           pathType: ImplementationSpecific

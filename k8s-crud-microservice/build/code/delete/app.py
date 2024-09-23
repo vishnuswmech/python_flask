@@ -116,7 +116,7 @@ def form():
     logger.info(f"The Redis hostname is {redis_host}")
     logger.info(f"The Redis host is {redis_host}")
     logger.info(f"The Home container is {home_service_url}")
-    return render_template("form.html",port=port,delete_service_url=delete_service_url,home_service_url=home_service_url)
+    return render_template("form.html",delete_service_url=delete_service_url,home_service_url=home_service_url)
 
 @app.route('/delete', methods=['POST'])
 def delete():

@@ -115,7 +115,7 @@ def form():
     logger.info(f"The Update container name is {update_service_url}")
     logger.info(f"The Redis host is {redis_host}")
     logger.info(f"The Home container is {home_service_url}")
-    return render_template("form.html",port=port,update_service_url=update_service_url,home_service_url=home_service_url)
+    return render_template("form.html",update_service_url=update_service_url,home_service_url=home_service_url)
 
 @app.route('/update', methods=['POST'])
 def update():

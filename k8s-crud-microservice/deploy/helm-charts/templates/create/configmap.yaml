@@ -4,6 +4,8 @@ metadata:
   name: "app-config"
 data:
   create_service_url: {{ .Values.config.create_service_url  }}
-  read_service_url: {{ .Values.config.create_service_url  }}
+  read_service_url: {{ .Values.config.read_service_url  }}
   update_service_url: {{ .Values.config.update_service_url  }}
   delete_service_url: {{ .Values.config.delete_service_url  }}
+  redis_host: {{ .Values.config.redis_host_url }}
+  home_service_url: {{ .Values.config.home_service_url  }}

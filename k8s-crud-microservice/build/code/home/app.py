@@ -111,7 +111,7 @@ def root():
     logger.info(f"The Read container name is {read_service_url}")
     logger.info(f"The Update container name is {update_service_url}")
     logger.info(f"The Delete container name is {delete_service_url}")
-    return render_template("index.html",create_service_url=create_service_url,update_service_url=update_service_url,read_service_url=read_service_url)
+    return render_template("index.html",create_service_url=create_service_url,update_service_url=update_service_url,read_service_url=read_service_url,delete_service_url=delete_service_url)
 
 app.run(debug=True,host="0.0.0.0")
 
