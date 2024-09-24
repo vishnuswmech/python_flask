@@ -24,7 +24,7 @@ args = vars(parser.parse_args())
 new_tag = args['imagetag']
 print(new_tag)
 
-file_path = 'values.yaml'
+file_path = 'k8s-crud-microservice/deploy/helm-charts/values.yaml'
 key_to_update = 'tag'
 
 
