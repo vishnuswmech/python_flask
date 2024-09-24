@@ -1,5 +1,6 @@
 import yaml
 import argparse
+import sys
 
 def update_yaml(file_path, key, new_value):
   try:  
