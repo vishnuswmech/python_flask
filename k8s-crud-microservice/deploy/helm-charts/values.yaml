@@ -1,7 +1,7 @@
 affinity: {}
 autoscaling:
-  enabled: false
-  maxReplicas: 100
+  enabled: true
+  maxReplicas: 3
   minReplicas: 1
   targetCPUUtilizationPercentage: 80
 config:
