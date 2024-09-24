@@ -20,4 +20,4 @@ jobs:
       with:
         push: true
         file: ./k8s-crud-microservice/build/code/home/Dockerfile
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:${{ steps.vars.outputs.sha_short }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:home-${{ steps.vars.outputs.sha_short }}
