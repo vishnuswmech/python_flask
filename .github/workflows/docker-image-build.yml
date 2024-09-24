@@ -18,7 +18,7 @@ jobs:
       with:
         push: true
         file: ./k8s-crud-microservice/build/code/home/Dockerfile
-        path: home
+        context: ./k8s-crud-microservice/build/code/home
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:home-${{ steps.vars.outputs.sha_short }}
     - name: Build and push the Create Docker image
       uses: docker/build-push-action@v3
