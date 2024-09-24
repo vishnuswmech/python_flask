@@ -14,11 +14,12 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}    
     - name: Build and push the Home Docker image
-      uses: docker/build-push-action@v6
+      uses: docker/build-push-action@v3
       with:
         push: true
         context: ./k8s-crud-microservice/build/code/home
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:home-${{ steps.vars.outputs.sha_short }}
+    
     - name: Git Update new Image tag
       run: |
           python3 k8s-crud-microservice/deploy/helm-charts/image-tag.py -i ${{ steps.vars.outputs.sha_short }}
