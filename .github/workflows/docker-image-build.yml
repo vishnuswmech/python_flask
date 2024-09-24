@@ -19,7 +19,31 @@ jobs:
         push: true
         context: ./k8s-crud-microservice/build/code/home
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:home-${{ steps.vars.outputs.sha_short }}
-    
+    - name: Build and push the Create Docker image
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        context: ./k8s-crud-microservice/build/code/create
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:create-${{ steps.vars.outputs.sha_short }}
+    - name: Build and push the Read Docker image
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        context: ./k8s-crud-microservice/build/code/read
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:read-${{ steps.vars.outputs.sha_short }}
+
+    - name: Build and push the Update Docker image
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        context: ./k8s-crud-microservice/build/code/update
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:update-${{ steps.vars.outputs.sha_short }}
+    - name: Build and push the Delete Docker image
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        context: ./k8s-crud-microservice/build/code/delete
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:delete-${{ steps.vars.outputs.sha_short }}
     - name: Git Update new Image tag
       run: |
           python3 k8s-crud-microservice/deploy/helm-charts/image-tag.py -i ${{ steps.vars.outputs.sha_short }}
