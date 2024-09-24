@@ -10,7 +10,7 @@ jobs:
       run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
     - name: Commit report
       run: |
-          python3 ,.k8s-crud-microservice/deploy/helm-charts/image_tag.py -i ${{ steps.vars.outputs.sha_short }}
+          python3 ./k8s-crud-microservice/deploy/helm-charts/image_tag.py -i ${{ steps.vars.outputs.sha_short }}
           git config --global user.name 'vishnuswmech'
           git config --global user.email 'vishnuanand97udt@gmail.com'
           git commit -am "Image tag updation"
