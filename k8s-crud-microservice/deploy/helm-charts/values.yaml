@@ -71,7 +71,7 @@ podAnnotations: {}
 podLabels: {}
 podSecurityContext: {}
 readinessProbe: null
-replicaCount: 2
+replicaCount: 1
 resources: {}
 securityContext:
   runAsUser: 0
