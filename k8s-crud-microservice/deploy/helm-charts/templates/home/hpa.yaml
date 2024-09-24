@@ -4,7 +4,9 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: home
   labels:
-    {{- include "crud.labels" . | nindent 4 }}
+    {{- with .Values.labels.home }}
+    {{- toYaml . | nindent 4  }}
+    {{- end }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
