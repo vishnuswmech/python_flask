@@ -36,7 +36,7 @@ spec:
         - name: delete-con
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: {{ .Values.image.registry }}:{{ .Values.image.delete_tag | default .Chart.AppVersion }}
+          image: {{ .Values.image.registry }}:delete-{{ .Values.image.tag | default .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - configMapRef:

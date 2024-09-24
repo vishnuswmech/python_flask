@@ -1,153 +1,94 @@
-# Default values for jenkins.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-replicaCount: 2
-
-image:
-  registry: "vishnuswmech/k8s-crud"
-  pullPolicy: "IfNotPresent"
-  home_tag: "home-v2"
-  create_tag: "create-v2"
-  read_tag: "read-v2"
-  update_tag: "update-v2"
-  delete_tag: "delete-v2"
-  redis_tag: "redis-v1"
-
-  # Overrides the image tag whose default is the chart appVersion.
-  
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-  
+affinity: {}
+autoscaling:
+  enabled: false
+  maxReplicas: 100
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 80
 config:
-  create_service_url: "https://create.local"
-  home_service_url: "https://home.local"
-  delete_service_url: "https://delete.local"
-  read_service_url: "https://read.local"
-  update_service_url: "https://update.local"
-  redis_host_url: "redis-service"
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: false
-  # Automatically mount a ServiceAccount's API credentials?
-  automount: false
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
-
-podAnnotations: {}
-podLabels: {}
+  create_service_url: https://create.local
+  delete_service_url: https://delete.local
+  home_service_url: https://home.local
+  read_service_url: https://read.local
+  redis_host_url: redis-service
+  update_service_url: https://update.local
+fullnameOverride: ''
+hostPath: /var/lib/docker/volumes/minikube/_data/jenkins
+image:
+  pullPolicy: IfNotPresent
+  redis_image: redis:latest
+  registry: vishnuswmech/k8s-crud
+  tag: v2
+imagePullSecrets: []
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  className: nginx
+  create_host:
+  - host: create.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+  delete_host:
+  - host: delete.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+  enabled: true
+  home_host:
+  - host: home.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+  read_host:
+  - host: read.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+  tls: []
+  update_host:
+  - host: update.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
 labels:
-  home:
-    app: home
   create:
     app: create
+  delete:
+    app: delete
+  home:
+    app: home
+  read:
+    app: read
   redis:
     app: redis
   update:
     app: update
-  read:
-    app: read
-  delete:
-    app: delete
-podSecurityContext: {}
-  # fsGroup: 2000
-
-securityContext:
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  runAsUser: 0
-
-service:
-  type: ClusterIP
-  port: 80
-  target_port: 5000
-  redis_port: 6379
-
-ingress:
-  enabled: true
-  className: "nginx"
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  home_host:
-    - host: home.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  create_host:
-    - host: create.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  update_host:
-    - host: update.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  read_host:
-    - host: read.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  delete_host:
-    - host: delete.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
-
-livenessProbe:
-
-readinessProbe:
-
-
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
-
-# Additional volumes on the output Deployment definition.
-volume:
-volumeName: jenkins-pv
-volumepvclaimName: jenkins-pvc
-mountPath: "/var/jenkins_home"
-volumeCapacity: 25Gi
-hostPath: /var/lib/docker/volumes/minikube/_data/jenkins
-volumeRequest: "10Gi"
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
-
-# Additional volumeMounts on the output Deployment definition.
-volumeMount: true
-
+livenessProbe: null
+mountPath: /var/jenkins_home
+nameOverride: ''
 nodeSelector: {}
-
+podAnnotations: {}
+podLabels: {}
+podSecurityContext: {}
+readinessProbe: null
+replicaCount: 2
+resources: {}
+securityContext:
+  runAsUser: 0
+service:
+  port: 80
+  redis_port: 6379
+  target_port: 5000
+  type: ClusterIP
+serviceAccount:
+  annotations: {}
+  automount: false
+  create: false
+  name: ''
 tolerations: []
-
-affinity: {}
+volume: null
+volumeCapacity: 25Gi
+volumeMount: true
+volumeName: jenkins-pv
+volumeRequest: 10Gi
+volumepvclaimName: jenkins-pvc

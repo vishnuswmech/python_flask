@@ -36,7 +36,7 @@ spec:
         - name: redis-con
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: {{ .Values.image.registry }}:{{ .Values.image.redis_tag | default .Chart.AppVersion }}
+          image: {{ .Values.image.redis_image }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - configMapRef:

@@ -36,7 +36,7 @@ spec:
         - name: read-con
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: {{ .Values.image.registry }}:{{ .Values.image.read_tag | default .Chart.AppVersion }}
+          image: {{ .Values.image.registry }}:read-{{ .Values.image.tag | default .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - configMapRef:
