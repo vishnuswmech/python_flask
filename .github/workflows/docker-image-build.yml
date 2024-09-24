@@ -21,3 +21,28 @@ jobs:
         push: true
         file: ./k8s-crud-microservice/build/code/home/Dockerfile
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:home-${{ steps.vars.outputs.sha_short }}
+    - name: Build and push the Create Docker image
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        file: ./k8s-crud-microservice/build/code/create/Dockerfile
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:create-${{ steps.vars.outputs.sha_short }}
+    - name: Build and push the Reaad Docker image
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        file: ./k8s-crud-microservice/build/code/read/Dockerfile
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:read-${{ steps.vars.outputs.sha_short }}
+
+    - name: Build and push the Update Docker image
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        file: ./k8s-crud-microservice/build/code/update/Dockerfile
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:update-${{ steps.vars.outputs.sha_short }}
+    - name: Build and push the Delete Docker image
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        file: ./k8s-crud-microservice/build/code/delete/Dockerfile
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-crud:delete-${{ steps.vars.outputs.sha_short }}
