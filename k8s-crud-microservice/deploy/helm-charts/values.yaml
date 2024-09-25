@@ -63,6 +63,50 @@ labels:
     app: redis
   update:
     app: update
+resources:
+  home:
+    limits: 
+      cpu: "10m"
+      memory: "10Mi"
+    requests:
+      cpu: "1m"
+      memory: "1Mi"
+  create:
+    limits: 
+      cpu: "10m"
+      memory: "10Mi"
+    requests:
+      cpu: "1m"
+      memory: "1Mi"
+  read:
+    limits: 
+      cpu: "10m"
+      memory: "10Mi"
+    requests:
+      cpu: "1m"
+      memory: "1Mi"
+  update:
+    limits: 
+      cpu: "10m"
+      memory: "10Mi"
+    requests:
+      cpu: "1m"
+      memory: "1Mi"
+  delete:
+    limits: 
+      cpu: "10m"
+      memory: "10Mi"
+    requests:
+      cpu: "1m"
+      memory: "1Mi"
+  redis:
+    limits: 
+      cpu: "20m"
+      memory: "20Mi"
+    requests:
+      cpu: "2m"
+      memory: "2Mi"
+  
 livenessProbe: null
 mountPath: /var/jenkins_home
 nameOverride: ''
