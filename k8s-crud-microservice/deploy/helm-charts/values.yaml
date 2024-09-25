@@ -67,35 +67,35 @@ resources:
   home:
     limits: 
       cpu: "10m"
-      memory: "10Mi"
+      memory: "20Mi"
     requests:
       cpu: "1m"
       memory: "1Mi"
   create:
     limits: 
       cpu: "10m"
-      memory: "10Mi"
+      memory: "20Mi"
     requests:
       cpu: "1m"
       memory: "1Mi"
   read:
     limits: 
       cpu: "10m"
-      memory: "10Mi"
+      memory: "20Mi"
     requests:
       cpu: "1m"
       memory: "1Mi"
   update:
     limits: 
       cpu: "10m"
-      memory: "10Mi"
+      memory: "20Mi"
     requests:
       cpu: "1m"
       memory: "1Mi"
   delete:
     limits: 
       cpu: "10m"
-      memory: "10Mi"
+      memory: "20Mi"
     requests:
       cpu: "1m"
       memory: "1Mi"
