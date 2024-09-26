@@ -17,7 +17,7 @@ image:
   pullPolicy: IfNotPresent
   redis_image: redis:latest
   registry: vishnuswmech/k8s-crud
-  tag: f55a098
+  tag: 0bb26c9
 imagePullSecrets: []
 ingress:
   annotations:
@@ -63,50 +63,6 @@ labels:
     app: redis
   update:
     app: update
-resources:
-  home:
-    limits: 
-      cpu: "10m"
-      memory: "20Mi"
-    requests:
-      cpu: "1m"
-      memory: "1Mi"
-  create:
-    limits: 
-      cpu: "10m"
-      memory: "20Mi"
-    requests:
-      cpu: "1m"
-      memory: "1Mi"
-  read:
-    limits: 
-      cpu: "10m"
-      memory: "20Mi"
-    requests:
-      cpu: "1m"
-      memory: "1Mi"
-  update:
-    limits: 
-      cpu: "10m"
-      memory: "20Mi"
-    requests:
-      cpu: "1m"
-      memory: "1Mi"
-  delete:
-    limits: 
-      cpu: "10m"
-      memory: "20Mi"
-    requests:
-      cpu: "1m"
-      memory: "1Mi"
-  redis:
-    limits: 
-      cpu: "20m"
-      memory: "20Mi"
-    requests:
-      cpu: "2m"
-      memory: "2Mi"
-  
 livenessProbe: null
 mountPath: /var/jenkins_home
 nameOverride: ''
@@ -116,6 +72,49 @@ podLabels: {}
 podSecurityContext: {}
 readinessProbe: null
 replicaCount: 1
+resources:
+  create:
+    limits:
+      cpu: 10m
+      memory: 20Mi
+    requests:
+      cpu: 1m
+      memory: 1Mi
+  delete:
+    limits:
+      cpu: 10m
+      memory: 20Mi
+    requests:
+      cpu: 1m
+      memory: 1Mi
+  home:
+    limits:
+      cpu: 10m
+      memory: 20Mi
+    requests:
+      cpu: 1m
+      memory: 1Mi
+  read:
+    limits:
+      cpu: 10m
+      memory: 20Mi
+    requests:
+      cpu: 1m
+      memory: 1Mi
+  redis:
+    limits:
+      cpu: 20m
+      memory: 20Mi
+    requests:
+      cpu: 2m
+      memory: 2Mi
+  update:
+    limits:
+      cpu: 10m
+      memory: 20Mi
+    requests:
+      cpu: 1m
+      memory: 1Mi
 securityContext:
   runAsUser: 0
 service:
