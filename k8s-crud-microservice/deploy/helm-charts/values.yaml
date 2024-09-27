@@ -104,10 +104,10 @@ resources:
   home:
     limits:
       cpu: 10m
-      memory: 20Mi
+      memory: 100Mi
     requests:
       cpu: 1m
-      memory: 1Mi
+      memory: 50Mi
   read:
     limits:
       cpu: 10m
