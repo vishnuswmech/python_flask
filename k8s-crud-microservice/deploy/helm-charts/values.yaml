@@ -17,7 +17,7 @@ image:
   pullPolicy: IfNotPresent
   redis_image: redis:latest
   registry: vishnuswmech/k8s-crud
-  tag: e12a6ec
+  tag: af0fa2a
 imagePullSecrets: []
 ingress:
   annotations:
