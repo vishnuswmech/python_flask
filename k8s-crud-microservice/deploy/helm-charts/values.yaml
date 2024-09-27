@@ -17,7 +17,7 @@ image:
   pullPolicy: IfNotPresent
   redis_image: redis:latest
   registry: vishnuswmech/k8s-crud
-  tag: caa8c19
+  tag: b209ed0
 imagePullSecrets: []
 ingress:
   annotations:
@@ -88,7 +88,6 @@ readinessProbe:
 replicaCount: 1
 resources:
   create:
-    limits:
     limits:
       cpu: 500m
       memory: 500Mi
