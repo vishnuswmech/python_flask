@@ -21,6 +21,8 @@ The CRUD application comprises six microservices, each responsible for key opera
 2. Update image tags in the `values.yaml` file of the Helm charts via GitHub Actions.
 3. Deploy the Helm chart to the Kubernetes cluster using ArgoCD.
 
+## [Deployment Workflow video](https://www.linkedin.com/posts/sri-vishnuvardhan_devops-crud-docker-activity-7245382452783816704-EPnU?utm_source=share&utm_medium=member_desktop)
+
 ## Tech stack:
 1. HTML forms
 2. Python Flask
