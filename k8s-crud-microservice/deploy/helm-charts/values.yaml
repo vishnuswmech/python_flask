@@ -68,8 +68,8 @@ livenessProbe:
   httpGet:
     path: /health
     port: 5000
-  initialDelaySeconds: 30
-  periodSeconds: 20
+  initialDelaySeconds: 10
+  periodSeconds: 5
   timeoutSeconds: 3
 mountPath: /var/jenkins_home
 nameOverride: ''
@@ -82,25 +82,26 @@ readinessProbe:
   httpGet:
     path: /health
     port: 5000
-  initialDelaySeconds: 30
-  periodSeconds: 10
+  initialDelaySeconds: 10
+  periodSeconds: 5
   timeoutSeconds: 3
 replicaCount: 1
 resources:
   create:
     limits:
-      cpu: 10m
-      memory: 20Mi
+    limits:
+      cpu: 500m
+      memory: 500Mi
     requests:
-      cpu: 1m
-      memory: 1Mi
+      cpu: 100m
+      memory: 100Mi
   delete:
     limits:
-      cpu: 10m
-      memory: 20Mi
+      cpu: 500m
+      memory: 500Mi
     requests:
-      cpu: 1m
-      memory: 1Mi
+      cpu: 100m
+      memory: 100Mi
   home:
     limits:
       cpu: 500m
@@ -110,25 +111,25 @@ resources:
       memory: 100Mi
   read:
     limits:
-      cpu: 10m
-      memory: 20Mi
+      cpu: 500m
+      memory: 500Mi
     requests:
-      cpu: 1m
-      memory: 1Mi
+      cpu: 100m
+      memory: 100Mi
   redis:
     limits:
-      cpu: 20m
-      memory: 20Mi
+      cpu: 500m
+      memory: 500Mi
     requests:
-      cpu: 2m
-      memory: 2Mi
+      cpu: 100m
+      memory: 100Mi
   update:
     limits:
-      cpu: 10m
-      memory: 20Mi
+      cpu: 500m
+      memory: 500Mi
     requests:
-      cpu: 1m
-      memory: 1Mi
+      cpu: 100m
+      memory: 100Mi
 securityContext:
   runAsUser: 0
 service:

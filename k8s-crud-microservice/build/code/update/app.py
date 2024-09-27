@@ -147,6 +147,9 @@ def update():
       logger.error(f"The User doesnt exists")
       return render_template("error.html",name=name,read_service_url=read_service_url,create_service_url=create_service_url,home_service_url=home_service_url)
 
+@app.route("/health")
+def health():
+    return jsonify(status="ok"), 200
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
