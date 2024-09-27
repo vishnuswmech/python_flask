@@ -140,7 +140,9 @@ def create():
       logger.error(f"The name {name} already exists, kindly check the name once and use Update portal to update the details for existing users.")
       return render_template("error.html",employee_id=employee_id,employee_mail=employee_mail,employee_name=name,update_service_url=update_service_url,home_service_url=home_service_url,create_service_url=create_service_url)
 
-
+@app.route("/health")
+def health():
+    return jsonify(status="ok"), 200
       
 
 if __name__ == "__main__":
