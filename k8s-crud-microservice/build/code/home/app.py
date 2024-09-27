@@ -109,9 +109,9 @@ delete_service_url=os.environ.get("delete_service_url")
 @app.route("/")
 def root():
     logger.info(f"The Custom docker network name is {create_service_url}")
-    logger.info(f"The Read container name is {read_service_url}")
-    logger.info(f"The Update container name is {update_service_url}")
-    logger.info(f"The Delete container name is {delete_service_url}")
+    logger.info(f"The Read service URL is {read_service_url}")
+    logger.info(f"The Update service URL is {update_service_url}")
+    logger.info(f"The Delete service URL is {delete_service_url}")
     return render_template("index.html",create_service_url=create_service_url,update_service_url=update_service_url,read_service_url=read_service_url,delete_service_url=delete_service_url)
 
 @app.route("/health")

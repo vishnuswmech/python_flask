@@ -111,10 +111,9 @@ create_service_url = os.environ.get("create_service_url")
 
 @app.route("/form",methods=["POST","GET"])
 def form():
-    logger.info(f"The Create container name is {create_service_url}")
-    logger.info(f"The Read container name is {read_service_url}")
-    logger.info(f"The Update container name is {home_service_url}")
-    logger.info(f"The Redis host is {redis_host}")
+    logger.info(f"The Create service URL is {create_service_url}")
+    logger.info(f"The Read service URL is {read_service_url}")
+    logger.info(f"The Update service URL is {home_service_url}")
     return render_template("form.html",read_service_url=read_service_url,home_service_url=home_service_url)
 
 
@@ -123,10 +122,9 @@ def list():
     name =  request.form.get("employee_name")
     output = redis.hgetall(f"user:{name}")
     check_name=redis.hget(f"user:{name}","name")
-    logger.info(f"The Create container name is {create_service_url}")
-    logger.info(f"The Read container name is {read_service_url}")
-    logger.info(f"The Update container name is {home_service_url}")
-    logger.info(f"The Redis host is {redis_host}")
+    logger.info(f"The Create service URL is {create_service_url}")
+    logger.info(f"The Read service URL is {read_service_url}")
+    logger.info(f"The Update service URL is {home_service_url}")
     logger.info(f"The Employee name is {name}")
     logger.info(f"The Name check from Redis is {check_name}")
     logger.info(f"The output from Redis for the {name} user is {output}")

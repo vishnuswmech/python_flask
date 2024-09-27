@@ -111,19 +111,15 @@ create_service_url = os.environ.get("create_service_url")
 
 @app.route("/form",methods=['POST','GET'])
 def form():
-    logger.info(f"The Create container name is {create_service_url}")
-    logger.info(f"The Read container name is {read_service_url}")
-    logger.info(f"The Redis hostname is {redis_host}")
-    logger.info(f"The Redis host is {redis_host}")
+    logger.info(f"The Create service URL is {create_service_url}")
+    logger.info(f"The Read service URL is {read_service_url}")
     logger.info(f"The Home container is {home_service_url}")
     return render_template("form.html",delete_service_url=delete_service_url,home_service_url=home_service_url)
 
 @app.route('/delete', methods=['POST'])
 def delete():
-    logger.info(f"The Create container name is {create_service_url}")
-    logger.info(f"The Read container name is {read_service_url}")
-    logger.info(f"The Redis hostname is {redis_host}")
-    logger.info(f"The Redis host is {redis_host}")
+    logger.info(f"The Create service URL is {create_service_url}")
+    logger.info(f"The Read service URL is {read_service_url}")
     logger.info(f"The Home container is {home_service_url}")
     name =  request.form.get("delete_employee_name")
     logger.info(f"The User is {name}")
