@@ -15,7 +15,7 @@ spec:
       - values.yaml
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: crud-argo-ns
+    namespace: k8s-crud
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
