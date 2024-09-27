@@ -116,16 +116,6 @@ def root():
 
 @app.route("/health")
 def health():
-    try:
-        cmd="curl -4 http://localhost:5000"
-        data = check_output(cmd, shell=True, universal_newlines=True, stderr=STDOUT)
-        status = "ok"
-    except CalledProcessError as ex:
-        data = ex.output
-        status = "not ok"
-    if data[-1:] == '\n':
-        data = data[:-1]
-    return jsonify(status=status),200 if status == "ok" else 503
-
+    return jsonify(status="ok"), 200
 app.run(debug=True,host="0.0.0.0")
 
