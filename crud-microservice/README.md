@@ -1,3 +1,12 @@
+# Project Overview
+The application leverages HTML forms for the frontend, Flask for the backend, and Redis as the database server.
+
+This CRUD application consists of six microservices, covering key operations: Create, Read, Update, and Delete.
+
+I embraced Docker to harness its full potential for microservices architecture, utilizing Docker networks and local DNS for FQDN resolution.
+
+Tech Stack: HTML forms, Python Flask, Redis.
+
 For more details, Kindly check out this LinkedIn post.
 https://www.linkedin.com/posts/sri-vishnuvardhan_docker-python-flask-activity-7239552589313236992-KasI?utm_source=share&utm_medium=member_desktop
 
