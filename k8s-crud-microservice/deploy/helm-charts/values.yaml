@@ -67,8 +67,10 @@ livenessProbe:
   httpGet:
     path: /health
     port: 5000
-  initialDelaySeconds: 15
+  initialDelaySeconds: 30
   periodSeconds: 20
+  failureThreshold: 3
+  timeoutSeconds: 3
 mountPath: /var/jenkins_home
 nameOverride: ''
 nodeSelector: {}
@@ -79,7 +81,9 @@ readinessProbe:
   httpGet:
     path: /health
     port: 5000
-  initialDelaySeconds: 5
+  initialDelaySeconds: 30
+  failureThreshold: 3
+  timeoutSeconds: 3
   periodSeconds: 10
 replicaCount: 1
 resources:
