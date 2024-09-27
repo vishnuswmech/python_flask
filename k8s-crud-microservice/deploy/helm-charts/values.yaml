@@ -63,14 +63,24 @@ labels:
     app: redis
   update:
     app: update
-livenessProbe: null
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 5000
+  initialDelaySeconds: 15
+  periodSeconds: 20
 mountPath: /var/jenkins_home
 nameOverride: ''
 nodeSelector: {}
 podAnnotations: {}
 podLabels: {}
 podSecurityContext: {}
-readinessProbe: null
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 5000
+  initialDelaySeconds: 5
+  periodSeconds: 10
 replicaCount: 1
 resources:
   create:

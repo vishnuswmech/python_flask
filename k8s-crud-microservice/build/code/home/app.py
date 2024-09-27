@@ -1,10 +1,11 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,jsonify
 import os
 import logging
 import datetime
 import pytz
 import glob
 import traceback
+from subprocess import check_output, CalledProcessError, STDOUT
 file_pattern = '*.log'
 current_directory = os.getcwd()
 app = Flask("crud_home_app")
@@ -112,6 +113,18 @@ def root():
     logger.info(f"The Update container name is {update_service_url}")
     logger.info(f"The Delete container name is {delete_service_url}")
     return render_template("index.html",create_service_url=create_service_url,update_service_url=update_service_url,read_service_url=read_service_url,delete_service_url=delete_service_url)
+
+def health():
+    try:
+        cmd="curl -4 http://localhost:5000"
+        data = check_output(cmd, shell=True, universal_newlines=True, stderr=STDOUT)
+        status = "ok"
+    except CalledProcessError as ex:
+        data = ex.output
+        status = "not ok"
+    if data[-1:] == '\n':
+        data = data[:-1]
+    return jsonify(status=status),200 if status == "ok" else 503
 
 app.run(debug=True,host="0.0.0.0")
 
