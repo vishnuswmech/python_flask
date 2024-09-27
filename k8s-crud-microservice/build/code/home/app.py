@@ -114,6 +114,7 @@ def root():
     logger.info(f"The Delete container name is {delete_service_url}")
     return render_template("index.html",create_service_url=create_service_url,update_service_url=update_service_url,read_service_url=read_service_url,delete_service_url=delete_service_url)
 
+@app.route("/health")
 def health():
     try:
         cmd="curl -4 http://localhost:5000"
