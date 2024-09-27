@@ -18,7 +18,7 @@ The CRUD application comprises six microservices, each responsible for key opera
 ## Deployment Workflow:
 
 1. Build Docker images for all services using GitHub Actions.
-2. Update image tags in the `values.yaml` file of the Helm charts via GitHub Actions.
+2. Update image tags in the `values.yaml` file of the Helm charts via GitHub Actions using Python program named [`image_tags.py`](https://github.com/vishnuswmech/python_flask/blob/main/k8s-crud-microservice/deploy/helm-charts/image-tag.py)
 3. Deploy the Helm chart to the Kubernetes cluster using ArgoCD.
 
 ## [Deployment Workflow video](https://www.linkedin.com/posts/sri-vishnuvardhan_devops-crud-docker-activity-7245382452783816704-EPnU?utm_source=share&utm_medium=member_desktop)
