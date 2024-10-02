@@ -9,14 +9,19 @@ server.bind((ip,port))
 
 server.listen()
 
-def sock_fun(csession,addr):
-    print(addr)
+def recv_fun(csession,addr):
+  while True:
     data=csession.recv(1024)
-    csession.send(b"Hi I am from server")
-    print(data)
+    client_name=addr[0]
+    global client_data
+    client_data=data.decode()
+    #message="Hi I am from server"
+    #final_message=client_name + " : " + message
+    #csession.send(final_message.encode())
+    print(client_data)
 
 
 while True:
     csession,addr=server.accept()
-    t1=threading.Thread(target=sock_fun,args=(csession,addr))
+    t1=threading.Thread(target=recv_fun,args=(csession,addr))
     t1.start()
