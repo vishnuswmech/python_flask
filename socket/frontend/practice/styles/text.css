@@ -1,0 +1,99 @@
+p {
+
+  margin-bottom: 0;
+  margin-top: 0;
+
+}
+.tahoma {
+
+  font-family: 'roboto';
+  font-size: 50px;
+  font-weight: bold;
+}
+.deals {
+  font-family: Arial;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 0;
+
+}
+.sales-day {
+  font-family: Arial;
+  font-size: 30px;
+  margin-top: 0;
+  line-height: 45px;
+  color:red;
+  font-style: italic;
+  margin-bottom: 10px;
+
+}
+.course {
+
+font-weight: bold;
+font-family: Verdana;
+font-size: 25px;
+
+}
+.description {
+
+color: rgb(105, 101, 101);
+font-size: 20px;
+font-family: Verdana, sans-serif;
+}
+
+.course-des {
+margin-top: 20px;
+width: 300px;
+font-size: 20px;
+
+}
+.start-style {
+
+margin-top: 30px;
+background-color: green;
+color: white;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 10px;
+padding-right: 10px;
+display:inline-block
+}
+.learn{
+
+margin-top: 20px;
+color: "blue";
+font-size: 20px;
+text-decoration: none;
+
+
+}
+
+.price {
+
+font-size: 20px;
+margin-top: 20px;
+font-family: Arial;
+
+}
+
+.usd {
+
+font-size: 15px;
+color: grey;
+padding-left: 3px;
+
+}
+.today {
+padding-top: 5px;
+  color: green;
+  font-size: 15px;
+}
+.after {
+padding-top: 5px;
+font-family: Arial;
+
+
+}
+.decrease {
+  color: red;
+}
