@@ -1,0 +1,82 @@
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.search-input {
+
+display: block;
+}
+.div1 {
+width: 250px;
+height: 250px;
+border: 5px solid green;
+margin-top: 20px;
+display: inline-block;
+font-family: "Roboto", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+
+
+
+}
+.div2 {
+  display: inline-block;
+  color: rgb(33, 37, 41);
+font-size: 14px;
+font-family: "Roboto", sans-serif;
+font-weight: 400;
+font-style: normal;
+margin-top: 0;
+height: 100px;
+
+
+}
+.div3 {
+  display: inline-block;
+  color: rgb(33, 37, 41);
+font-size: 14px;
+font-family: "Roboto", "Arial";
+font-weight: 500;
+font-style: normal;
+width: 180px;
+vertical-align: top;
+margin-top: 5px;
+line-height: 20px;
+padding-left: 5px;
+
+
+}
+.stats {
+  display: inline-block;
+  color: gb(96, 96, 96);
+font-size: 12px;
+font-family: "Roboto", "Arial";
+font-weight: 400;
+font-style: normal;
+
+vertical-align: top;
+margin-top: 5px;
+line-height: 20px;
+padding-left: 5px;
+
+
+}
+.image {
+ width: 100%;
+ display: inline-block;
+ margin-top: 0;
+}
+.profile-pic {
+border-radius: 50%;
+width: 30px;
+display: inline-block;
+margin-top: 5px;
+
+  
+}
+
+.pic-hori-div {
+  display: inline-block;
+}
