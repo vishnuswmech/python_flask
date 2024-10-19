@@ -1,0 +1,150 @@
+affinity: {}
+autoscaling:
+  enabled: true
+  maxReplicas: 3
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 80
+config:
+  create_service_url: https://create.local
+  delete_service_url: https://delete.local
+  home_service_url: https://home.local
+  read_service_url: https://read.local
+  redis_host_url: redis-service
+  update_service_url: https://update.local
+fullnameOverride: ''
+hostPath: /var/lib/docker/volumes/minikube/_data/jenkins
+image:
+  pullPolicy: IfNotPresent
+  redis_image: redis:latest
+  registry: vishnuswmech/k8s-crud
+  tag: 1fb0ec8
+imagePullSecrets: []
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  className: nginx
+  create_host:
+  - host: create.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+  delete_host:
+  - host: delete.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+  enabled: true
+  home_host:
+  - host: home.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+  read_host:
+  - host: read.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+  tls: []
+  update_host:
+  - host: update.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+labels:
+  create:
+    app: create
+  delete:
+    app: delete
+  home:
+    app: home
+  read:
+    app: read
+  redis:
+    app: redis
+  update:
+    app: update
+livenessProbe:
+  failureThreshold: 3
+  httpGet:
+    path: /health
+    port: 5000
+  initialDelaySeconds: 10
+  periodSeconds: 5
+  timeoutSeconds: 3
+mountPath: /var/jenkins_home
+nameOverride: ''
+nodeSelector: {}
+podAnnotations: {}
+podLabels: {}
+podSecurityContext: {}
+readinessProbe:
+  failureThreshold: 3
+  httpGet:
+    path: /health
+    port: 5000
+  initialDelaySeconds: 10
+  periodSeconds: 5
+  timeoutSeconds: 3
+replicaCount: 1
+resources:
+  create:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  delete:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  home:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  read:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  redis:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  update:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+securityContext:
+  runAsUser: 0
+service:
+  port: 80
+  redis_port: 6379
+  target_port: 5000
+  type: ClusterIP
+serviceAccount:
+  annotations: {}
+  automount: false
+  create: false
+  name: ''
+tolerations: []
+volume: null
+volumeCapacity: 25Gi
+volumeMount: true
+volumeName: jenkins-pv
+volumeRequest: 10Gi
+volumepvclaimName: jenkins-pvc
